@@ -98,7 +98,7 @@ var fakeData = [
   ["Kristof_1978","Kristof Lambrecht",22,0,49],
   ["TradeAlvexo","Alvexo Trade",6,18,45],
   ["TeslaOwnerClub","Everything Tesla",0,7,60]];
-var myChart = echarts.init(document.getElementById('main'));
+var myChart = echarts.init(document.getElementById('graph3'));
 
         
 
@@ -200,7 +200,7 @@ var option = {
         {
             type: 'bar',
             stack: 'sum',
-            name:'share',
+            name:'Reply',
             color:'darkblue',
             label: {
                 show: true,
@@ -214,7 +214,7 @@ var option = {
         {
             type: 'bar',
             stack: 'sum',
-            name:'like',
+            name:'Share',
             color:'orange',
             label: {
                 show: true,
@@ -228,7 +228,7 @@ var option = {
         {
             type: 'bar',
             stack: 'sum',
-            name:'reply',
+            name:'Like',
             color: 'green',
             barWidth: 15,
             barGap: '50%',
