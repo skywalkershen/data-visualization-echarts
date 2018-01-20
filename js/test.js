@@ -12,3 +12,23 @@ var testData3 = [
 
 // var result = dataInitG3(testData3);
 // console.log(result);
+
+//get fake
+// function getFakeData(data){
+//     var string = {};
+//     data.forEach(element => {
+//         string = string + '[' + '"'+element[0] +'",'
+//         + '"'+element[1] +'",'
+//         + '"'+element[2] +'",'
+//         + '"'+element[3] +'",'
+//          +element[4] + ','  +
+//          +element[5] + ','  +
+//          +element[6]   +
+//         '],\n';
+//     });
+//     return string;
+// }
+
+// var fake = getFakeData(datag4);
+// console.log(fake);
+

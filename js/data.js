@@ -1,7 +1,5 @@
 var rawDataURL = "https://raw.githubusercontent.com/skywalkershen/data-visualization-echarts/6b1fc9600c8b86123c65dd76d28368320b120476/TeslaModel3.csv";
 
-
-
 var rawData = [];
 var dataIn = [];
 var datag1 = [];
@@ -106,10 +104,15 @@ d3.text(rawDataURL, function(data){
     //console.log(dataIn.length);
 
     datag3 = dataInitG3(dataIn);
-    console.log(datag3);
+     console.log(datag3);
     
      datag4 = dataInitG4(dataIn);
-     console.log(datag4);
-     console.log(dataIn);
+      console.log(datag4);
+    //  console.log(dataIn);
+
+    
+
+
+    
      
 })
