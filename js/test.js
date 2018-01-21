@@ -10,9 +10,10 @@ var testData3 = [
 
 ];
 
+var copy = JSON.parse(JSON.stringify(testData3));
+//console.log(copy === testData3);
 
-
-console.log(dataInitG4(testData3).slice(0,7));
+//console.log(dataInitG4(testData3).slice(0,7));
 
 
 // var result = dataInitG3(testData3);

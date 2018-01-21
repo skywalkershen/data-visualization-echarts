@@ -9,20 +9,29 @@ var datag4 = [];
 
 //transfer the input chinese characters into Eng
 //transfer input string to number
+//change order of 'Reply', 'Share', 'Like' to 'Share', 'Like', 'Reply'
 function rawDataStringToNum(data){
-    var heading = [['Time', 'Twitter_ID', 'UserName', 'Post_Content','Reply', 'Share', 'Like']];
-    var data = data.slice(1);
-    data = data.map(item=>{
-        var newItem = [];
-        for(i = 0; i < 4; i++){
-            newItem.push(item[i]);
-        }
-        for(i = 4; i < 7; i++){
-            newItem.push(parseInt(item[i]));
-        }
-        return newItem;
-    })
-    return heading.concat(data);
+    var heading = [['Time', 'Twitter_ID', 'UserName', 'Post_Content', 'Share', 'Like', 'Reply']];
+    var dataCopy = data.slice(1);
+    dataCopy.forEach((item)=>{
+      var temp = parseInt(item[4]);
+       item[4] = parseInt(item[5]);
+       item[5] = parseInt(item[6]);
+       item[6] = temp;
+    });
+
+     return heading.concat(dataCopy);
+    // data = data.map(item=>{
+    //     var newItem = [];
+    //     for(i = 0; i < 4; i++){
+    //         newItem.push(item[i]);
+    //     }
+    //     for(i = 4; i < 7; i++){
+    //         newItem.push(parseInt(item[i]));
+    //     }
+    //     return newItem;
+    // })
+    // return heading.concat(data);
 }
 
 
@@ -67,10 +76,11 @@ function dataInitG3(dataIn){
     
 }
 
+//Just sort to descending
 function dataInitG4(dataIn){
-    var dataCopy = dataIn.slice(0);
-    var heading = [];
-    heading.push(dataCopy[0]);
+    //Deep copy, note the elements in array are objs, so dataIn.slice(0) will still match reference of new array's elements to original elements
+    var dataCopy = JSON.parse(JSON.stringify(dataIn));
+    var heading = [['Time', 'Twitter_ID', 'UserName', 'Post_Content', 'Share', 'Like', 'Reply']];
     var dataCopy = dataCopy.slice(1);
     
     //sort to be descending
@@ -99,17 +109,23 @@ function dataInitG4(dataIn){
 //get csv data and parse into array of arrays
 d3.text(rawDataURL, function(data){
     rawData = d3.csvParseRows(data);
-    //console.log(rawData);
+    //console.log(rawData.slice(0));
+    // var temp = dataInitG4(rawData.slice(0,99));
+    // console.log(temp);
+
     
     dataIn = rawDataStringToNum(rawData);
-    //console.log(dataIn.length);
+    //console.log(dataIn.slice(0,5));
+
+    //descending sort for graph4
+    datag4 = dataInitG4(dataIn);
+    //console.log(datag4.slice(0, 5));
 
     datag3 = dataInitG3(dataIn);
      //console.log(datag3.slice(0,5));
      
-
-     datag4 = dataInitG4(dataIn);
-     //console.log(datag4.slice(0,5));
+    
+     
 
   
 
