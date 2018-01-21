@@ -25,6 +25,7 @@ function rawDataStringToNum(data){
     return heading.concat(data);
 }
 
+
 function dataInitG3(dataIn){
     var map = new Map();
     //note: Time and Post deleted!!!
@@ -104,11 +105,13 @@ d3.text(rawDataURL, function(data){
     //console.log(dataIn.length);
 
     datag3 = dataInitG3(dataIn);
-     console.log(datag3);
-    
+     //console.log(datag3.slice(0,5));
+     
+
      datag4 = dataInitG4(dataIn);
-      console.log(datag4);
-    //  console.log(dataIn);
+     //console.log(datag4.slice(0,5));
+
+  
 
     
 
