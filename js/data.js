@@ -37,11 +37,11 @@ function rawDataStringToNum(data){
 
 function dataInitG3(dataIn){
     var map = new Map();
+    var dataCopy = JSON.parse(JSON.stringify(dataIn));
     //note: Time and Post deleted!!!
-    var heading = [['Twitter_ID', 'UserName', 'Reply', 'Share', 'Like']];
+    var heading = [['Twitter_ID', 'UserName', 'Share', 'Like', 'Reply']];
 
     //Don't do inplace on dataIn, this is a reference, the change will have effect on the original data!!!
-    dataCopy = dataIn.slice(0);
     dataCopy = dataCopy.slice(1);
     var result = [];
     //merge reply/share/like num with identical id into the 1st one
@@ -60,6 +60,7 @@ function dataInitG3(dataIn){
     })
     
     //sort to be descending
+    //since combined twitts for same user, need to sort again
     result = result.sort(function(a,b){
         var sumA = a[2] + a[3] + a[4];
         var sumB = b[2] + b[3] + b[4];

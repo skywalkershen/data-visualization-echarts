@@ -1,103 +1,52 @@
 var fakeData3 = [
-  ["Twitter_ID","UserName","Reply", "Share", "Like"],
-  ["evannex_com","EVANNEX for Tesla",461,6381,15366],
-  ["TeslaModel3News","Tesla Model 3 News",422,2878,9876],
-  ["Model3Owners","Model 3 Owners Club",823,1773,9571],
-  ["TeslaPittsburgh","Tesla Pittsburgh",190,635,2118],
-  ["XingleiShen","Xinglei Shen",108,585,2223],
-  ["techeblog","TechEBlog",0,796,759],
-  ["TeslaClubUK","Tesla Owners Club UK",159,611,777],
-  ["omg_tesla","Omg_Tesla",97,306,1128],
-  ["JimHarris","Jim Harris",35,644,764],
-  ["jassummers","Jas Summers",75,220,800],
-  ["ubuygas","UBUYGAS",34,347,510],
-  ["ElectriCarsES","ElectriCars",70,28,714],
-  ["bmwblog","BMWBLOG",24,188,578],
-  ["plugshare","PlugShare",26,152,501],
-  ["Jasonrbirchall","Jason R Birchall",170,96,332],
-  ["AmazingChevVolt","Thomas J. Thias",23,247,287],
-  ["kirillklip","Kirill Klip",9,387,153],
-  ["electro_mov","electromovilidad",26,120,398],
-  ["therealautoblog","Autoblog",21,175,337],
-  ["droeder72","Dirk RĂśder",44,86,352],
-  ["JWinstonTS","TS Julia Winston",18,54,387],
-  ["TheTeslaModelS","TeslaModelS",4,185,249],
-  ["ChargeMap","ChargeMap",18,171,216],
-  ["crociangelini","Elisabetta",0,182,210],
-  ["PaulHolzapfel","Paul Holzapfel",133,66,168],
-  ["leahyparks","Leah Y Parks",6,187,149],
-  ["melindavermeer","Melinda",48,48,224],
-  ["TamaraMcCleary","Tamara McCleary",0,152,140],
-  ["dlacalle_IA","Daniel Lacalle",18,90,162],
-  ["MITJAKE","Jake Chen",5,57,202],
-  ["yicaichina","Yicai Global çŹŹä¸č´˘çť",0,152,110],
-  ["IEEEorg","IEEE",0,85,170],
-  ["AaronEichinger","Aaron Eichinger",10,20,222],
-  ["emicimaz","Emiliano Mazzetto",12,12,228],
-  ["JasonHartmanROI","Jason Hartman",45,55,150],
-  ["GerberKawasaki","Ross Gerber",20,33,192],
-  ["MotorTrend","Motor Trend",7,35,203],
-  ["c4chaos","~C4Chaos",21,22,188],
-  ["raphaelsebban","Raphael Sebban",0,192,36],
-  ["PluginCarsNews","PluginCars",0,98,126],
-  ["StrategicTechVC","Tech Investor",5,34,169],
-  ["eshellshear","Evan Shellshear",14,72,121],
-  ["TeslaBargain","Tesla Bargain",41,66,98],
-  ["TeslaModelX","Tesla Model X FAN",0,54,136],
-  ["Rexyyy_","Kim",12,34,137],
-  ["EverCharge","EverCharge",0,89,81],
-  ["slcuervo","Saul Lopez âĄď¸đ",7,28,127],
-  ["getmeontop","GetMeOnTop",0,64,88],
-  ["twandroid","FrAndroid đąâď¸đĽđŽđ§",6,32,108],
-  ["Nikstrade","Nikstrade OĂ",16,80,48],
-  ["findit_social","findit_social",0,143,0],
-  ["evholes","#EVHOLE",14,40,88],
-  ["foroelectricos","ForoCochesElĂŠctricos",14,28,98],
-  ["guidaautonoma","guidaautonoma",1,77,59],
-  ["juhani","Juhani Polkko đŤđŽ",30,0,105],
-  ["baddriversofCA","Nor-Cal Dashcam",0,34,96],
-  ["teslamagazincz","TeslaMagazin.cz",0,65,65],
-  ["EctoFlapjack","C.",0,0,126],
-  ["RealOTCStockGuy","TheRealOTCStockGuy",0,42,84],
-  ["globedrive","Globe Drive",12,60,49],
-  ["AllinOneTesla","AllinOne|Tesla",0,32,88],
-  ["FormulaeTesla","Tesla_FormulaE",0,34,85],
-  ["beebomco","Beebom",8,28,82],
-  ["ChargePointnet","ChargePoint",4,40,72],
-  ["Breezcar_FR","Breezcar",0,55,59],
-  ["evomagazine","evo Magazine",0,20,90],
-  ["foxlider1","#foxlider1",0,50,60],
-  ["jasononsax","Jason Whitmore",22,0,88],
-  ["countryviewkris","Kris Currie",0,18,90],
-  ["Mitch_Fox","Mitch Fox",0,36,72],
-  ["ButenegroEV","butenegro",10,26,71],
-  ["JJODRY","Julien JODRY",0,35,71],
-  ["niallsharkey","niall sharkey",0,0,100],
-  ["jenbeightley","Jennifer Beightley",21,7,70],
-  ["WaitingForTesla","Waiting For Tesla",25,7,65],
-  ["NoShadyLady","Ellen Dux",0,32,64],
-  ["amtvmedia","Christopher Greene",0,24,72],
-  ["JSuaveFrancois","J.Francois",16,0,80],
-  ["BBCStreeter","Susannah Streeter",10,40,44],
-  ["ComOdity_Man","ComOdity_Money_Man",0,36,54],
-  ["automobilemag","Automobile Magazine",0,32,56],
-  ["ID_R_McGregor","Robert McGregor",3,30,54],
-  ["illestJTT","john tran",9,18,57],
-  ["TeslaMS60","Tesla Model S60",1,21,60],
-  ["Inta_Tain","I promote Artistđ¤",0,52,26],
-  ["invest2success","Invest2Success.com",0,26,52],
-  ["PeterNemere","Peter Nemere",11,0,66],
-  ["AntilaHeli","Heli Antila",4,0,72],
-  ["alxartdesign","Alex Jaeger",11,3,62],
-  ["James_Galvin","James Galvin",0,13,60],
-  ["republic","Republic",0,21,52],
-  ["breastcar","BreastCar TESLA",0,23,50],
-  ["TeslaSAfrica","Tesla South Africa",36,9,27],
-  ["teslaology","Teslaology",0,16,56],
-  ["ElectricCarNews","Morey Schapira",0,23,48],
-  ["Kristof_1978","Kristof Lambrecht",22,0,49],
-  ["TradeAlvexo","Alvexo Trade",6,18,45],
-  ["TeslaOwnerClub","Everything Tesla",0,7,60]];
+    ["Twitter_ID", "UserName", "Share", "Like", "Reply"]
+    ,["evannex_com", "EVANNEX for Tesla", 6381, 15366, 461]
+    ,["TeslaModel3News", "Tesla Model 3 News", 2878, 9876, 422]
+    ,["Model3Owners", "Model 3 Owners Club", 1773, 9571, 823]
+    ,["TeslaPittsburgh", "Tesla Pittsburgh", 635, 2118, 190]
+    ,["XingleiShen", "Xinglei Shen", 585, 2223, 108]
+    ,["techeblog", "TechEBlog", 796, 759, 0]
+    ,["TeslaClubUK", "Tesla Owners Club UK", 611, 777, 159]
+    ,["omg_tesla", "Omg_Tesla", 306, 1128, 97]
+    ,["JimHarris", "Jim Harris", 644, 764, 35]
+    ,["jassummers", "Jas Summers", 220, 800, 75]
+    ,["ubuygas", "UBUYGAS", 347, 510, 34]
+    ,["ElectriCarsES", "ElectriCars", 28, 714, 70]
+    ,["bmwblog", "BMWBLOG", 188, 578, 24]
+    ,["plugshare", "PlugShare", 152, 501, 26]
+    ,["Jasonrbirchall", "Jason R Birchall", 96, 332, 170]
+    ,["AmazingChevVolt", "Thomas J. Thias", 247, 287, 23]
+    ,["kirillklip", "Kirill Klip", 387, 153, 9]
+    ,["electro_mov", "electromovilidad", 120, 398, 26]
+    ,["therealautoblog", "Autoblog", 175, 337, 21]
+    ,["droeder72", "Dirk Röder", 86, 352, 44]
+    ,["JWinstonTS", "TS Julia Winston", 54, 387, 18]
+    ,["TheTeslaModelS", "TeslaModelS", 185, 249, 4]
+    ,["ChargeMap", "ChargeMap", 171, 216, 18]
+    ,["crociangelini", "Elisabetta", 182, 210, 0]
+    ,["PaulHolzapfel", "Paul Holzapfel", 66, 168, 133]
+    ,["leahyparks", "Leah Y Parks", 187, 149, 6]
+    ,["melindavermeer", "Melinda", 48, 224, 48]
+    ,["TamaraMcCleary", "Tamara McCleary", 152, 140, 0]
+    ,["dlacalle_IA", "Daniel Lacalle", 90, 162, 18]
+    ,["MITJAKE", "Jake Chen", 57, 202, 5]
+    ,["yicaichina", "Yicai Global 第一财经", 152, 110, 0]
+    ,["IEEEorg", "IEEE", 85, 170, 0]
+    ,["AaronEichinger", "Aaron Eichinger", 20, 222, 10]
+    ,["emicimaz", "Emiliano Mazzetto", 12, 228, 12]
+    ,["JasonHartmanROI", "Jason Hartman", 55, 150, 45]
+    ,["GerberKawasaki", "Ross Gerber", 33, 192, 20]
+    ,["MotorTrend", "Motor Trend", 35, 203, 7]
+    ,["c4chaos", "~C4Chaos", 22, 188, 21]
+    ,["raphaelsebban", "Raphael Sebban", 192, 36, 0]
+    ,["PluginCarsNews", "PluginCars", 98, 126, 0]
+    ,["StrategicTechVC", "Tech Investor", 34, 169, 5]
+    ,["eshellshear", "Evan Shellshear", 72, 121, 14]
+    ,["TeslaBargain", "Tesla Bargain", 66, 98, 41]
+    ,["TeslaModelX", "Tesla Model X FAN", 54, 136, 0]
+    ,["Rexyyy_", "Kim", 34, 137, 12]
+];
+  
 var myChart3 = echarts.init(document.getElementById('graph3'));
 
         
@@ -200,7 +149,7 @@ var option3Init = {
         {
             type: 'bar',
             stack: 'sum',
-            name:'Reply',
+            name:'Share',
             color:'darkblue',
             label: {
                 show: true,
@@ -214,7 +163,7 @@ var option3Init = {
         {
             type: 'bar',
             stack: 'sum',
-            name:'Share',
+            name:'Like',
             color:'orange',
             label: {
                 show: true,
@@ -228,7 +177,7 @@ var option3Init = {
         {
             type: 'bar',
             stack: 'sum',
-            name:'Like',
+            name:'Reply',
             color: 'green',
             barWidth: 15,
             barGap: '50%',
