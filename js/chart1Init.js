@@ -51,11 +51,22 @@ var option1Init = {
         text: 'Activities',
         left:'right',
     },
-    legend: {},
-    tooltip: {},
+    
+    tooltip: {
+        trigger:'axis',
+    },
     dataset: {
         source: fakeData1,
     },
+    //for gradient
+    // visualMap: {
+    //     show: false,
+    //     type: 'continuous',
+    //     //seriesIndex: 0,
+    //     dimension:1,
+    //     min: 0,
+    //     max: 400
+    // },
     
     // dataZoom:{
     //     type: 'slider',
@@ -73,14 +84,13 @@ var option1Init = {
     //["Time","Twitter_ID","UserName","Post_Content","Reply", "Share", "Like"],
     xAxis: {
        silent:false,
-       name: 'Values',
+       name: 'Time',
        nameLocation: 'center',
        type: 'category',
     },
     // 声明一个 Y 轴，数值轴。
     yAxis: {
         
-        offSet:20,
         nameTextStyle:{},
         silent:false,
         name: 'Post_Content',
