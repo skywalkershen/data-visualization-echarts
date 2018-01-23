@@ -2,10 +2,17 @@ var rawDataURL = "https://raw.githubusercontent.com/skywalkershen/data-visualiza
 
 var rawData = [];
 var dataIn = [];
+//data for the four charts
 var datag1 = [];
 var datag2 = [];
 var datag3 = [];
 var datag4 = [];
+//time scale for chart1 and 2
+var scale1 = 0;
+var scale2 = 0;
+//data scaled according to drill up/down, used for display
+var datag1show = [];
+var datag2show = [];
 
 //transfer the input chinese characters into Eng
 //transfer input string to number
@@ -100,6 +107,32 @@ function dataInitG4(dataIn){
     return heading.concat(dataCopy);
 }
 
+//only keep time, share, like, reply
+function dataInitG2(dataIn){
+    //
+    var dataCopy = JSON.parse(JSON.stringify(dataIn));
+    dataCopy.forEach((item) => {
+       item[1] = item[4];
+       item[2] = item[5];
+       item[3] = item[6];
+       item.splice(4, 3);
+    });
+    return dataCopy;
+    
+}
+
+function dataInitG1(dataIn){
+    //combine share, like, reply
+    var heading = [['Time','Total']];
+    var dataCopy = JSON.parse(JSON.stringify(dataIn));
+    dataCopy = dataCopy.slice(1);
+    dataCopy.forEach(item=>{
+        item[1] += item[2] + item[3];
+        item.splice(2, 2);
+    });
+    return heading.concat(dataCopy);
+}
+
 //get csv data and parse into array of objs
 // dataIn = d3.csv(rawDataURL, function(data){
 //   dataIn = data;
@@ -124,8 +157,9 @@ d3.text(rawDataURL, function(data){
 
     datag3 = dataInitG3(dataIn);
      //console.log(datag3.slice(0,5));
-     
-    
+    datag2 = dataInitG2(dataIn);
+
+    datag1 = dataInitG1(datag2);
      
 
   

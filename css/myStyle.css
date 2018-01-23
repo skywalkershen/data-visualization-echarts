@@ -17,6 +17,9 @@ h1{
     float:left;
 }
 
+#div1:after, #div2:after, #div3:after, #div4:after{
+    clear:both
+}
 
 
 #graph1,#graph3{

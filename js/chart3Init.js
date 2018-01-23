@@ -132,6 +132,7 @@ var option3Init = {
        silent:false,
        name: 'Values',
        nameLocation: 'center',
+       triggerEvent:true,
     },
     // 声明一个 Y 轴，数值轴。
     yAxis: {
@@ -141,6 +142,7 @@ var option3Init = {
         silent:false,
         name: 'User Name',
         nameLocation: 'end',
+        triggerEvent:true,
     },
     // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
     //["Twitter_ID","UserName","Reply", "Share", "Like"]
@@ -198,6 +200,7 @@ var option3Init = {
 myChart3.setOption(option3Init);
 
 myChart3.on('click', function(params){
+    console.log(params);
     console.log(params.data);
     console.log(params.dataIndex);
 })
