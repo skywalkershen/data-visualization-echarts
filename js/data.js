@@ -3,10 +3,9 @@ var rawDataURL = "https://raw.githubusercontent.com/skywalkershen/data-visualiza
 var rawData = [];
 var dataIn = [];
 //data for the four charts
-var datag1 = [];
-var datag2 = [];
 var datag3 = [];
 var datag4 = [];
+var dataLineChart = [];
 //time scale for chart1 and 2
 var scale1 = 0;
 var scale2 = 0;
@@ -107,32 +106,35 @@ function dataInitG4(dataIn){
     return heading.concat(dataCopy);
 }
 
-//only keep time, share, like, reply
-function dataInitG2(dataIn){
-    //
-    var dataCopy = JSON.parse(JSON.stringify(dataIn));
-    dataCopy.forEach((item) => {
-       item[1] = item[4];
-       item[2] = item[5];
-       item[3] = item[6];
-       item.splice(4, 3);
-    });
-    return dataCopy;
-    
-}
+//var copy = JSON.parse(JSON.stringify(testData3));
 
-function dataInitG1(dataIn){
-    //combine share, like, reply
-    var heading = [['Time','Total']];
+//data process for rawdata
+//convert time to milliseconds, sort the seconds into ascending order(the 0th elem will be put to 0 index on x axis)
+//only keep time, reply, share, like and add a field for total
+//
+function chartLineInit(dataIn){
     var dataCopy = JSON.parse(JSON.stringify(dataIn));
+    var heading = [['Time', 'Reply', 'Share', 'Like', 'Total']];
     dataCopy = dataCopy.slice(1);
-    dataCopy.forEach(item=>{
-        item[1] += item[2] + item[3];
-        item.splice(2, 2);
+    dataCopy.forEach(element => {
+        element[0] = Date.parse(element[0]);
+        element[1] = element[4];
+        element[2] = element[5];
+        element[3] = element[6];
+        element[4] = element[1] + element[2] + element[3];
+        element.splice(5, 2);
+    });
+    dataCopy = dataCopy.sort(function(a,b){
+        if(a[0] < b[0]){
+            return -1;
+        }
+        if(a[0] > b[0]){
+            return 1;
+        }
+        return 0;
     });
     return heading.concat(dataCopy);
 }
-
 //get csv data and parse into array of objs
 // dataIn = d3.csv(rawDataURL, function(data){
 //   dataIn = data;
@@ -157,9 +159,7 @@ d3.text(rawDataURL, function(data){
 
     datag3 = dataInitG3(dataIn);
      //console.log(datag3.slice(0,5));
-    datag2 = dataInitG2(dataIn);
-
-    datag1 = dataInitG1(datag2);
+    dataLineChart = chartLineInit(dataIn);
      
 
   
