@@ -206,7 +206,25 @@ d3.text(rawDataURL, function(data){
      
     datag1show = scaleFunc1[scaleg1](dataLineChart);
     datag2show = scaleFunc2[scaleg2](dataLineChart);
-  
+    
+
+    //chartInit
+
+    option1 = {
+        dataset:{
+            source: datag1show,
+        }
+    }
+    myChart1.hideLoading();
+    myChart1.setOption(option1);
+
+    option2 = {
+        dataset:{
+            source: datag2show,
+        }
+    }
+    myChart2.hideLoading();
+    myChart2.setOption(option2);
 
     
     $('#drillDown1').click(function(){

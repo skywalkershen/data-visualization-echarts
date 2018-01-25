@@ -66,9 +66,9 @@ var option2Init = {
         //     min: 0,
         //     max: 400
         // }],
-        dataset:{
-            source:fakeData2,
-        },
+        // dataset:{
+        //     source:fakeData2,
+        // },
     
         title: [{
             left: 'left',
@@ -145,6 +145,7 @@ var option2Init = {
 
 // 使用刚指定的配置项和数据显示图表。
 myChart2.setOption(option2Init);
+myChart2.showLoading();
 
 myChart2.on('click', function(params){
     console.log(params.data);

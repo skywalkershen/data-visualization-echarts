@@ -55,9 +55,9 @@ var option1Init = {
     tooltip: {
         trigger:'axis',
     },
-    dataset: {
-        source: fakeData1,
-    },
+    // dataset: {
+    //     source: fakeData1,
+    // },
     //for gradient
     // visualMap: {
     //     show: false,
@@ -115,6 +115,7 @@ var option1Init = {
 
 // 使用刚指定的配置项和数据显示图表。
 myChart1.setOption(option1Init);
+myChart1.showLoading();
 
 myChart1.on('click', function(params){
     console.log(params.data);
