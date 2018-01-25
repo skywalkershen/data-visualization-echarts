@@ -151,7 +151,7 @@ var option3Init = {
         {
             type: 'bar',
             stack: 'sum',
-            name:'Share',
+            name:'Reply',
             color:'darkblue',
             label: {
                 show: true,
@@ -165,7 +165,7 @@ var option3Init = {
         {
             type: 'bar',
             stack: 'sum',
-            name:'Like',
+            name:'Share',
             color:'orange',
             label: {
                 show: true,
@@ -179,7 +179,7 @@ var option3Init = {
         {
             type: 'bar',
             stack: 'sum',
-            name:'Reply',
+            name:'Like',
             color: 'green',
             barWidth: 15,
             barGap: '50%',

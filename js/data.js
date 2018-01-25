@@ -6,16 +6,37 @@ var dataIn = [];
 var datag3 = [];
 var datag4 = [];
 var dataLineChart = [];
-//time scale for chart1 and 2
-var scale1 = 0;
-var scale2 = 0;
 //data scaled according to drill up/down, used for display
 var datag1show = [];
 var datag2show = [];
 
+
+//for sorted array of objs
+function dedup(inputArray){
+    var lastElem = '';
+    var filtered = inputArray.filter((elem, index)=>{
+        if(index === 0){
+            lastElem = elem.join();
+            return true;
+        }
+        if(lastElem !== elem.join()){
+            lastElem = elem.join();
+            return true;
+        }else{
+            return false;
+        }
+        
+        
+    });
+    return filtered;
+
+}
+
+
 //transfer the input chinese characters into Eng
 //transfer input string to number
 //change order of 'Reply', 'Share', 'Like' to 'Share', 'Like', 'Reply'
+//sort time to ascending order
 function rawDataStringToNum(data){
     var heading = [['Time', 'Twitter_ID', 'UserName', 'Post_Content', 'Share', 'Like', 'Reply']];
     var dataCopy = data.slice(1);
@@ -25,6 +46,21 @@ function rawDataStringToNum(data){
        item[5] = parseInt(item[6]);
        item[6] = temp;
     });
+
+    dataCopy.sort(function(a,b){
+        var timea = Date.parse(a[0])
+        var timeb = Date.parse(b[0])
+        if(timea < timeb){
+            return -1;
+        }
+        if(timea > timeb){
+            return 1;
+        }
+        return 0;
+    });
+
+    dataCopy = dedup(dataCopy);
+
 
      return heading.concat(dataCopy);
     // data = data.map(item=>{
@@ -39,6 +75,8 @@ function rawDataStringToNum(data){
     // })
     // return heading.concat(data);
 }
+
+
 
 
 function dataInitG3(dataIn){
@@ -79,6 +117,7 @@ function dataInitG3(dataIn){
         return 0;
     });
 
+
     return heading.concat(result);
     
 }
@@ -108,7 +147,6 @@ function dataInitG4(dataIn){
 
 //var copy = JSON.parse(JSON.stringify(testData3));
 
-//data process for rawdata
 //convert time to milliseconds, sort the seconds into ascending order(the 0th elem will be put to 0 index on x axis)
 //only keep time, reply, share, like and add a field for total
 //
@@ -124,15 +162,16 @@ function chartLineInit(dataIn){
         element[4] = element[1] + element[2] + element[3];
         element.splice(5, 2);
     });
-    dataCopy = dataCopy.sort(function(a,b){
-        if(a[0] < b[0]){
-            return -1;
-        }
-        if(a[0] > b[0]){
-            return 1;
-        }
-        return 0;
-    });
+    // dataCopy = dataCopy.sort(function(a,b){
+    //     if(a[0] < b[0]){
+    //         return -1;
+    //     }
+    //     if(a[0] > b[0]){
+    //         return 1;
+    //     }
+    //     return 0;
+    // });
+
     return heading.concat(dataCopy);
 }
 //get csv data and parse into array of objs
