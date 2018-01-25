@@ -90,9 +90,9 @@ var option4Init = {
     },
     legend: {},
     tooltip: {},
-    dataset: {
-        source: fakeData4,
-    },
+    // dataset: {
+    //     source: fakeData4,
+    // },
     
     dataZoom:{
         type: 'slider',
@@ -112,6 +112,7 @@ var option4Init = {
        silent:false,
        name: 'Values',
        nameLocation: 'center',
+       triggerEvent:true,
     },
     // 声明一个 Y 轴，数值轴。
     yAxis: {
@@ -121,6 +122,7 @@ var option4Init = {
         silent:false,
         name: 'Post_Content',
         nameLocation: 'end',
+        triggerEvent:true,
     },
     // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
     //["Twitter_ID","UserName","Reply", "Share", "Like"]
@@ -176,42 +178,44 @@ var option4Init = {
 
 // 使用刚指定的配置项和数据显示图表。
 myChart4.setOption(option4Init);
+myChart4.showLoading();
 
 myChart4.on('click', function(params){
+    console.log(params);
     console.log(params.data);
     console.log(params.dataIndex);
 })
-//descending
-document.querySelector('#descending4').addEventListener('click',function(){
-    fakeData4.sort(function(a,b){
-        var sumA = a[4] + a[5] + a[6];
-        var sumB = b[4] + b[5] + b[6];
-        if(sumA < sumB){
-            return -1;
-        }
-        if(sumA > sumB){
-            return 1;
-        }
-        return 0;
-    });
-    myChart4.setOption(option4Init);
-    console.log(fakeData4);
-});
-//ascending
-document.querySelector('#ascending4').addEventListener('click',function(){
-    fakeData4.sort(function(a,b){
-        var sumA = a[4] + a[5] + a[6];
-        var sumB = b[4] + b[5] + b[6];
-        if(sumA > sumB){
-            return -1;
-        }
-        if(sumA < sumB){
-            return 1;
-        }
-        return 0;
-    });
-    myChart4.setOption(option4Init);
-    console.log(fakeData4);
-})
+// //descending
+// document.querySelector('#descending4').addEventListener('click',function(){
+//     fakeData4.sort(function(a,b){
+//         var sumA = a[4] + a[5] + a[6];
+//         var sumB = b[4] + b[5] + b[6];
+//         if(sumA < sumB){
+//             return -1;
+//         }
+//         if(sumA > sumB){
+//             return 1;
+//         }
+//         return 0;
+//     });
+//     myChart4.setOption(option4Init);
+//     console.log(fakeData4);
+// });
+// //ascending
+// document.querySelector('#ascending4').addEventListener('click',function(){
+//     fakeData4.sort(function(a,b){
+//         var sumA = a[4] + a[5] + a[6];
+//         var sumB = b[4] + b[5] + b[6];
+//         if(sumA > sumB){
+//             return -1;
+//         }
+//         if(sumA < sumB){
+//             return 1;
+//         }
+//         return 0;
+//     });
+//     myChart4.setOption(option4Init);
+//     console.log(fakeData4);
+// })
 
 

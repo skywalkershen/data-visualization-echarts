@@ -70,36 +70,34 @@ var option2Init = {
         //     source:fakeData2,
         // },
     
-        title: [{
+        title: {
             left: 'left',
-            text: 'Share'
-        }, {
-            bottom: '60%',
-            left: 'left',
-            text: 'Like'
-        } ,{
-            bottom: '30%',
-            left: 'left',
-            text: 'Reply'
-        }],
+            text: 'Share, Like, Reply'
+        },
         tooltip: {
             trigger: 'axis'
         },
         xAxis: [{
+            triggerEvent:true,
             type:'category',
         }, {
+            triggerEvent:true,
             type:'category',
             gridIndex: 1
         }, {
+            triggerEvent:true,
             type:'category',
             gridIndex: 2
         }],
         yAxis: [{
+            triggerEvent:true,
             splitLine: {show: false}
         }, {
+            triggerEvent:true,
             splitLine: {show: false},
             gridIndex: 1
         }, {
+            triggerEvent:true,
             splitLine: {show: false},
             gridIndex: 2
         }],
@@ -148,7 +146,5 @@ myChart2.setOption(option2Init);
 myChart2.showLoading();
 
 myChart2.on('click', function(params){
-    console.log(params.data);
-    console.log(params.dataIndex);
+    console.log(params);
 })
-

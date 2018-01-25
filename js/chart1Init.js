@@ -48,8 +48,8 @@ var myChart1 = echarts.init(document.getElementById('graph1'));
 
 var option1Init = {
     title:{
-        text: 'Activities',
-        left:'right',
+        text: 'Total Activities',
+        left:'left',
     },
     
     tooltip: {
@@ -87,6 +87,7 @@ var option1Init = {
        name: 'Time',
        nameLocation: 'center',
        type: 'category',
+       triggerEvent:true,
     },
     // 声明一个 Y 轴，数值轴。
     yAxis: {
@@ -95,6 +96,7 @@ var option1Init = {
         silent:false,
         name: 'Post_Content',
         nameLocation: 'end',
+        triggerEvent:true,
     },
     // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
     //["Twitter_ID","UserName","Reply", "Share", "Like"]
@@ -118,8 +120,7 @@ myChart1.setOption(option1Init);
 myChart1.showLoading();
 
 myChart1.on('click', function(params){
-    console.log(params.data);
-    console.log(params.dataIndex);
+    console.log(params);
 })
 
 

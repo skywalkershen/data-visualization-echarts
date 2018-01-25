@@ -111,9 +111,9 @@ var option3Init = {
     },
     legend: {},
     tooltip: {},
-    dataset: {
-        source: fakeData3,
-    },
+    // dataset: {
+    //     source: fakeData3,
+    // },
     
     dataZoom:{
         type: 'slider',
@@ -198,43 +198,45 @@ var option3Init = {
 
 // 使用刚指定的配置项和数据显示图表。
 myChart3.setOption(option3Init);
+myChart3.showLoading();
 
 myChart3.on('click', function(params){
     console.log(params);
     console.log(params.data);
     console.log(params.dataIndex);
 })
-//descending
-document.querySelector('#descending3').addEventListener('click',function(){
-    fakeData3.sort(function(a,b){
-        var sumA = a[2] + a[3] + a[4];
-        var sumB = b[2] + b[3] + b[4];
-        if(sumA < sumB){
-            return -1;
-        }
-        if(sumA > sumB){
-            return 1;
-        }
-        return 0;
-    });
-    myChart3.setOption(option3Init);
-    console.log(fakeData3);
-});
-//ascending
-document.querySelector('#ascending3').addEventListener('click',function(){
-    fakeData3.sort(function(a,b){
-      var sumA = a[2] + a[3] + a[4];
-      var sumB = b[2] + b[3] + b[4];
-        if(sumA > sumB){
-            return -1;
-        }
-        if(sumA < sumB){
-            return 1;
-        }
-        return 0;
-    });
-    myChart3.setOption(option3Init);
-    console.log(fakeData3);
-})
+// //descending
+// document.querySelector('#descending3').addEventListener('click',function(){
+    
+//     fakeData3.sort(function(a,b){
+//         var sumA = a[2] + a[3] + a[4];
+//         var sumB = b[2] + b[3] + b[4];
+//         if(sumA < sumB){
+//             return -1;
+//         }
+//         if(sumA > sumB){
+//             return 1;
+//         }
+//         return 0;
+//     });
+//     myChart3.setOption(option3Init);
+//     console.log(fakeData3);
+// });
+// //ascending
+// document.querySelector('#ascending3').addEventListener('click',function(){
+//     fakeData3.sort(function(a,b){
+//       var sumA = a[2] + a[3] + a[4];
+//       var sumB = b[2] + b[3] + b[4];
+//         if(sumA > sumB){
+//             return -1;
+//         }
+//         if(sumA < sumB){
+//             return 1;
+//         }
+//         return 0;
+//     });
+//     myChart3.setOption(option3Init);
+//     console.log(fakeData3);
+// })
 
 

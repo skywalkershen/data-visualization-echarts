@@ -113,10 +113,10 @@ function dataInitG3(dataIn){
         var sumA = a[2] + a[3] + a[4];
         var sumB = b[2] + b[3] + b[4];
         if(sumA > sumB){
-            return -1;
+            return 1;
         }
         if(sumA < sumB){
-            return 1;
+            return -1;
         }
         return 0;
     });
@@ -138,10 +138,10 @@ function dataInitG4(dataIn){
         var sumA = a[4] + a[5] + a[6];
         var sumB = b[4] + b[5] + b[6];
         if(sumA > sumB){
-            return -1;
+            return 1;
         }
         if(sumA < sumB){
-            return 1;
+            return -1;
         }
         return 0;
     });
@@ -208,7 +208,7 @@ d3.text(rawDataURL, function(data){
     datag2show = scaleFunc2[scaleg2](dataLineChart);
     
 
-    //chartInit
+    //feeding data to charts
 
     option1 = {
         dataset:{
@@ -225,6 +225,22 @@ d3.text(rawDataURL, function(data){
     }
     myChart2.hideLoading();
     myChart2.setOption(option2);
+
+    option3 = {
+        dataset:{
+            source: datag3,
+        }
+    }
+    myChart3.hideLoading();
+    myChart3.setOption(option3);
+
+    option4 = {
+        dataset:{
+            source: datag4,
+        }
+    }
+    myChart4.hideLoading();
+    myChart4.setOption(option4);
 
     
     $('#drillDown1').click(function(){
@@ -278,8 +294,105 @@ d3.text(rawDataURL, function(data){
             myChart2.setOption(option2);
         }
     });
+
+    //descending
+$('#descending3').click(function(){
+    var heading = [['Twitter_ID', 'UserName', 'Share', 'Like', 'Reply']];
+    var data3 = datag3.slice(1);
+    data3.sort(function(a,b){
+        var sumA = a[2] + a[3] + a[4];
+        var sumB = b[2] + b[3] + b[4];
+        if(sumA < sumB){
+            return -1;
+        }
+        if(sumA > sumB){
+            return 1;
+        }
+        return 0;
+    });
+    datag3 = heading.concat(data3);
+    option3 = {
+        dataset:{
+            source:datag3
+        }
+    }
+    myChart3.setOption(option3);
+});
      
 
+        //ascending
+$('#ascending3').click(function(){
+    var heading = [['Twitter_ID', 'UserName', 'Share', 'Like', 'Reply']];
+    var data3 = datag3.slice(1);
+    data3.sort(function(a,b){
+        var sumA = a[2] + a[3] + a[4];
+        var sumB = b[2] + b[3] + b[4];
+        if(sumA < sumB){
+            return 1;
+        }
+        if(sumA > sumB){
+            return -1;
+        }
+        return 0;
+    });
+    datag3 = heading.concat(data3);
+    option3 = {
+        dataset:{
+            source:datag3
+        }
+    }
+    myChart3.setOption(option3);
+});
+
+    //descending
+    $('#descending4').click(function(){
+        var heading = [['Time', 'Twitter_ID', 'UserName', 'Post_Content', 'Share', 'Like', 'Reply']];
+        var data4 = datag4.slice(1);
+        data4.sort(function(a,b){
+            var sumA = a[4] + a[5] + a[6];
+            var sumB = b[4] + b[5] + b[6];
+            if(sumA < sumB){
+                return -1;
+            }
+            if(sumA > sumB){
+                return 1;
+            }
+            return 0;
+        });
+        datag4 = heading.concat(data4);
+        option4 = {
+            dataset:{
+                source:datag4
+            }
+        }
+        myChart4.setOption(option4);
+    });
+         
+    
+            //ascending
+    $('#ascending4').click(function(){
+        var heading = [['Time', 'Twitter_ID', 'UserName', 'Post_Content', 'Share', 'Like', 'Reply']];
+        var data4 = datag4.slice(1);
+        data4.sort(function(a,b){
+            var sumA = a[4] + a[5] + a[6];
+            var sumB = b[4] + b[5] + b[6];
+            if(sumA < sumB){
+                return 1;
+            }
+            if(sumA > sumB){
+                return -1;
+            }
+            return 0;
+        });
+        datag4 = heading.concat(data4);
+        option4 = {
+            dataset:{
+                source:datag4
+            }
+        }
+        myChart4.setOption(option4);
+    });
+    
     // var drillTest = milliSecToDate(dataLineChart).slice(0, 70);
     // console.log(drillTest);
 
@@ -321,9 +434,5 @@ d3.text(rawDataURL, function(data){
     // var dayResult = dayTest(drillTest);
     // console.log(dayResult)
 
-    var filtered = dataLineChart.filter(item=>{
-        item[0] % 3600000 === 0;
-    })
-    
-    console.log(filtered);
+
 })

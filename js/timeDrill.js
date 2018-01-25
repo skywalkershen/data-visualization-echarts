@@ -54,7 +54,7 @@ var drillToYear1 = function(array){
         }
     });
 
-    console.log(result);
+    //console.log(result);
     return heading.concat(result);
 }
 
@@ -89,7 +89,7 @@ var drillToMonth1 = function(array){
         }
     });
 
-    console.log(result);
+    //console.log(result);
     return heading.concat(result);
 }
 
@@ -124,7 +124,7 @@ var drillToDay1 = function(array){
         }
     });
 
-    console.log(result);
+    //consolconsole.log(result);
     return heading.concat(result);
 }
 
@@ -159,7 +159,7 @@ var drillToHour1= function(array){
         }
     });
 
-    console.log(result);
+    //console.log(result);
     return heading.concat(result);
 }
 
@@ -201,7 +201,7 @@ var drillToYear2 = function(array){
         }
     });
 
-    console.log(result);
+   //console.log(result);
     return heading.concat(result);
 }
 
@@ -241,7 +241,7 @@ var drillToMonth2 = function(array){
         }
     });
 
-    console.log(result);
+   // console.log(result);
     return heading.concat(result);
 }
 
@@ -282,7 +282,7 @@ var drillToDay2 = function(array){
         }
     });
 
-    console.log(result);
+   // console.log(result);
     return heading.concat(result);
 }
 
@@ -322,7 +322,7 @@ var drillToHour2= function(array){
         }
     });
 
-    console.log(result);
+   // console.log(result);
     return heading.concat(result);
 }
 
