@@ -9,6 +9,10 @@ var dataLineChart = [];
 //data scaled according to drill up/down, used for display
 var datag1show = [];
 var datag2show = [];
+var option1 = {};
+var option2 = {};
+var option3 = {};
+var option4 = {};
 
 
 //for sorted array of objs
@@ -205,8 +209,103 @@ d3.text(rawDataURL, function(data){
   
 
     
+    $('#drillDown1').click(function(){
+        if(scaleg1 < scaleFunc1.length - 1){
+            scaleg1++;
+            datag1show = scaleFunc1[scaleg1](dataLineChart);
+            option1 = {
+                dataset:{
+                    source:datag1show
+                }
+            }
+            myChart1.setOption(option1);
+        }
+    });
 
-
+    $('#drillUp1').click(function(){
+        if(scaleg1 > 0){
+            scaleg1--;
+            datag1show = scaleFunc1[scaleg1](dataLineChart);
+            option1 = {
+                dataset:{
+                    source:datag1show
+                }
+            }
+            myChart1.setOption(option1);
+        }
+    });
     
+    $('#drillDown2').click(function(){
+        if(scaleg2 < scaleFunc2.length - 1){
+            scaleg2++;
+            datag2show = scaleFunc2[scaleg2](dataLineChart);
+            option2 = {
+                dataset:{
+                    source:datag2show
+                }
+            }
+            myChart2.setOption(option2);
+        }
+    });
+
+    $('#drillUp2').click(function(){
+        if(scaleg2 > 0){
+            scaleg2--;
+            datag2show = scaleFunc2[scaleg2](dataLineChart);
+            option2 = {
+                dataset:{
+                    source:datag2show
+                }
+            }
+            myChart2.setOption(option2);
+        }
+    });
      
+
+    // var drillTest = milliSecToDate(dataLineChart).slice(0, 70);
+    // console.log(drillTest);
+
+    // function dayTest(array){
+    //     var heading = [['Time','Total']];
+    //     arrayCopy = array.slice(1);//JSON.parse(JSON.stringify(array.slice(1)));
+    //     var beginDate = new Date('2016-11-7');
+    //     var endDate = new Date('2016-11-15');
+    //     var resultLen = moment.duration(endDate.getTime()-beginDate.getTime()).asDays();
+    //     var resultLen = Math.round(resultLen);
+    //     var result = [];
+    //     for(var i = 0; i < resultLen; i++){
+    //         result.push([beginDate,0]);
+    //         beginDate= moment(beginDate).add(1,'days')._d;
+    //     }
+    //     var ptr = 0;
+    //     result.forEach((item, idx)=>{
+    //         while(ptr < arrayCopy.length){
+    //             var curDate = arrayCopy[ptr][0];
+    //             if(idx === resultLen - 1){
+    //                 if(curDate > item[0]){
+    //                     item[1] += arrayCopy[ptr][4];
+    //                 }
+    //                 ptr++;
+    //             }else{
+    //                 if(curDate > item[0] && curDate < result[idx + 1][0]){
+    //                     item[1] += arrayCopy[ptr++][4];
+    //                 }else{
+    //                     break;
+    //                 }
+    //             }
+    //         }
+    //     });
+    
+    //     console.log(result);
+    //     return heading.concat(result);
+    // }
+
+    // var dayResult = dayTest(drillTest);
+    // console.log(dayResult)
+
+    var filtered = dataLineChart.filter(item=>{
+        item[0] % 3600000 === 0;
+    })
+    
+    console.log(filtered);
 })

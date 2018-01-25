@@ -17,8 +17,8 @@
 //Space:O(n)
 
 //time scale for chart1 and 2
-var scaleg1 = 0;
-var scaleg2 = 0;
+var scaleg1 = 1;
+var scaleg2 = 1;
 
 
 
@@ -44,7 +44,8 @@ var drillToYear1 = function(array){
                 }
                 ptr++;
             }else{
-                if(curDate > item[0] && curDate < result[idx + 1][0]){
+//Note, the == case must be considered, or a time at that hour without min and secs will leads to break, and the data afterwards will not be grouped in!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                if(curDate >= item[0] && curDate < result[idx + 1][0]){
                     item[1] += arrayCopy[ptr++][4];
                 }else{
                     break;
@@ -79,7 +80,7 @@ var drillToMonth1 = function(array){
                 }
                 ptr++;
             }else{
-                if(curDate > item[0] && curDate < result[idx + 1][0]){
+                if(curDate >= item[0] && curDate < result[idx + 1][0]){
                     item[1] += arrayCopy[ptr++][4];
                 }else{
                     break;
@@ -114,7 +115,7 @@ var drillToDay1 = function(array){
                 }
                 ptr++;
             }else{
-                if(curDate > item[0] && curDate < result[idx + 1][0]){
+                if(curDate >= item[0] && curDate < result[idx + 1][0]){
                     item[1] += arrayCopy[ptr++][4];
                 }else{
                     break;
@@ -149,7 +150,7 @@ var drillToHour1= function(array){
                 }
                 ptr++;
             }else{
-                if(curDate > item[0] && curDate < result[idx + 1][0]){
+                if(curDate >= item[0] && curDate < result[idx + 1][0]){
                     item[1] += arrayCopy[ptr++][4];
                 }else{
                     break;
@@ -188,7 +189,7 @@ var drillToYear2 = function(array){
                 }
                 ptr++;
             }else{
-                if(curDate > item[0] && curDate < result[idx + 1][0]){
+                if(curDate >= item[0] && curDate < result[idx + 1][0]){
                     item[1] += arrayCopy[ptr][1];
                     item[2] += arrayCopy[ptr][2];
                     item[3] += arrayCopy[ptr][3];
@@ -228,7 +229,7 @@ var drillToMonth2 = function(array){
                 }
                 ptr++;
             }else{
-                if(curDate > item[0] && curDate < result[idx + 1][0]){
+                if(curDate >= item[0] && curDate < result[idx + 1][0]){
                     item[1] += arrayCopy[ptr][1];
                     item[2] += arrayCopy[ptr][2];
                     item[3] += arrayCopy[ptr][3];
@@ -269,7 +270,7 @@ var drillToDay2 = function(array){
                 }
                 ptr++;
             }else{
-                if(curDate > item[0] && curDate < result[idx + 1][0]){
+                if(curDate >= item[0] && curDate < result[idx + 1][0]){
                     item[1] += arrayCopy[ptr][1];
                     item[2] += arrayCopy[ptr][2];
                     item[3] += arrayCopy[ptr][3];
@@ -309,7 +310,7 @@ var drillToHour2= function(array){
                 }
                 ptr++;
             }else{
-                if(curDate > item[0] && curDate < result[idx + 1][0]){
+                if(curDate >= item[0] && curDate < result[idx + 1][0]){
                     item[1] += arrayCopy[ptr][1];
                     item[2] += arrayCopy[ptr][2];
                     item[3] += arrayCopy[ptr][3];
@@ -327,5 +328,5 @@ var drillToHour2= function(array){
 
 
 //scale array for functions
-var scaleFunc1 = [drillToYear1, drillToMonth1, drillToHour1, drillToDay1];
-var scaleFunc2 = [drillToYear2, drillToMonth2, drillToHour2, drillToDay2];
+var scaleFunc1 = [drillToYear1, drillToMonth1,  drillToDay1, drillToHour1];
+var scaleFunc2 = [drillToYear2, drillToMonth2, drillToDay2, drillToHour2];
