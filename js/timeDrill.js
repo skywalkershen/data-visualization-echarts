@@ -189,7 +189,7 @@ var drillToYear2 = function(array){
                 ptr++;
             }else{
                 if(curDate > item[0] && curDate < result[idx + 1][0]){
-                    iitem[1] += arrayCopy[ptr][1];
+                    item[1] += arrayCopy[ptr][1];
                     item[2] += arrayCopy[ptr][2];
                     item[3] += arrayCopy[ptr][3];
                     ptr++

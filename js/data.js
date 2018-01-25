@@ -200,7 +200,8 @@ d3.text(rawDataURL, function(data){
      //console.log(datag3.slice(0,5));
     dataLineChart = chartLineInit(dataIn);
      
-
+    datag1show = scaleFunc1[scaleg1](dataLineChart);
+    datag2show = scaleFunc2[scaleg2](dataLineChart);
   
 
     
