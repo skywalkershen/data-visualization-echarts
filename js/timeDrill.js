@@ -189,9 +189,10 @@ var drillToYear2 = function(array){
                 ptr++;
             }else{
                 if(curDate > item[0] && curDate < result[idx + 1][0]){
-                    item[1] += arrayCopy[ptr++][1];
-                    item[2] += arrayCopy[ptr++][2];
-                    item[3] += arrayCopy[ptr++][3];
+                    iitem[1] += arrayCopy[ptr][1];
+                    item[2] += arrayCopy[ptr][2];
+                    item[3] += arrayCopy[ptr][3];
+                    ptr++
                 }else{
                     break;
                 }
@@ -228,9 +229,10 @@ var drillToMonth2 = function(array){
                 ptr++;
             }else{
                 if(curDate > item[0] && curDate < result[idx + 1][0]){
-                    item[1] += arrayCopy[ptr++][1];
-                    item[2] += arrayCopy[ptr++][2];
-                    item[3] += arrayCopy[ptr++][3];
+                    item[1] += arrayCopy[ptr][1];
+                    item[2] += arrayCopy[ptr][2];
+                    item[3] += arrayCopy[ptr][3];
+                    ptr++
                 }else{
                     break;
                 }
@@ -263,13 +265,15 @@ var drillToDay2 = function(array){
                     item[1] += arrayCopy[ptr][1];
                     item[2] += arrayCopy[ptr][2];
                     item[3] += arrayCopy[ptr][3];
+                    ptr++
                 }
                 ptr++;
             }else{
                 if(curDate > item[0] && curDate < result[idx + 1][0]){
-                    item[1] += arrayCopy[ptr++][1];
-                    item[2] += arrayCopy[ptr++][2];
-                    item[3] += arrayCopy[ptr++][3];
+                    item[1] += arrayCopy[ptr][1];
+                    item[2] += arrayCopy[ptr][2];
+                    item[3] += arrayCopy[ptr][3];
+                    ptr++
                 }else{
                     break;
                 }
@@ -299,12 +303,17 @@ var drillToHour2= function(array){
             var curDate = new Date(arrayCopy[ptr][0]);
             if(idx === resultLen - 1){
                 if(curDate > item[0]){
-                    item[1] += arrayCopy[ptr][4];
+                    item[1] += arrayCopy[ptr][1];
+                    item[2] += arrayCopy[ptr][2];
+                    item[3] += arrayCopy[ptr][3];
                 }
                 ptr++;
             }else{
                 if(curDate > item[0] && curDate < result[idx + 1][0]){
-                    item[1] += arrayCopy[ptr++][4];
+                    item[1] += arrayCopy[ptr][1];
+                    item[2] += arrayCopy[ptr][2];
+                    item[3] += arrayCopy[ptr][3];
+                    ptr++
                 }else{
                     break;
                 }
