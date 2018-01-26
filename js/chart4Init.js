@@ -98,12 +98,15 @@ var option4Init = {
         type: 'slider',
         orient: 'vertical',
         start: 100,
-        end: 95,
+        end: 99.8,
         backgroundColor: 'lightgrey',
         zoomLock: true,
+        //handleSize: 5,
         showDataShadow: false,
         showDetail: false,
         filterMode:'empty',
+        realtime:false,
+        
         
     },
     // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。

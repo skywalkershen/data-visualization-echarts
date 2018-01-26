@@ -114,18 +114,23 @@ var option3Init = {
     // dataset: {
     //     source: fakeData3,
     // },
+    grid: {
+        left: '1%',
+        
+        containLabel: true
+    },
     
     dataZoom:{
         type: 'slider',
         orient: 'vertical',
         start: 100,
-        end: 95,
+        end: 99.6,
         backgroundColor: 'lightgrey',
         zoomLock: true,
         showDataShadow: false,
         showDetail: false,
         filterMode:'empty',
-        
+        realtime:false,
     },
     // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
     xAxis: {

@@ -19,6 +19,7 @@
 //time scale for chart1 and 2
 var scaleg1 = 1;
 var scaleg2 = 1;
+var scaleStr = ['year','month','day','hour'];
 
 
 

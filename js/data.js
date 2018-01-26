@@ -56,11 +56,9 @@ function rawDataStringToNum(data){
         var timeb = Date.parse(b[0])
         if(timea < timeb){
             return -1;
-        }
-        if(timea > timeb){
+        }else if(timea > timeb){
             return 1;
-        }
-        return 0;
+        }else return 0;
     });
 
     dataCopy = dedup(dataCopy);
@@ -114,11 +112,9 @@ function dataInitG3(dataIn){
         var sumB = b[2] + b[3] + b[4];
         if(sumA > sumB){
             return 1;
-        }
-        if(sumA < sumB){
+        }else if(sumA < sumB){
             return -1;
-        }
-        return 0;
+        }else return 0;
     });
 
 
@@ -139,11 +135,9 @@ function dataInitG4(dataIn){
         var sumB = b[4] + b[5] + b[6];
         if(sumA > sumB){
             return 1;
-        }
-        if(sumA < sumB){
+        }else if(sumA < sumB){
             return -1;
-        }
-        return 0;
+        }else return 0;
     });
 
     return heading.concat(dataCopy);
@@ -245,53 +239,94 @@ d3.text(rawDataURL, function(data){
     
     $('#drillDown1').click(function(){
         if(scaleg1 < scaleFunc1.length - 1){
+            if(scaleg1 > 0){
+                $('#drillUp1').css('visibility', 'visible');
+            }
             scaleg1++;
             datag1show = scaleFunc1[scaleg1](dataLineChart);
             option1 = {
                 dataset:{
                     source:datag1show
-                }
+                },
+                title:{
+                    text: 'Total Activities by ' + scaleStr[scaleg1],
+                    left:'left',
+                },
             }
             myChart1.setOption(option1);
+            if(scaleg1 === scaleFunc1.length - 1){
+                $('#drillDown1').css('visibility','hidden');
+            }
         }
+        
     });
 
     $('#drillUp1').click(function(){
         if(scaleg1 > 0){
+            if(scaleg1 < scaleFunc1.length - 1){
+                $('#drillDown1').css('visibility', 'visible');
+            }
             scaleg1--;
             datag1show = scaleFunc1[scaleg1](dataLineChart);
             option1 = {
                 dataset:{
                     source:datag1show
-                }
+                },
+                title:{
+                    text: 'Total Activities by ' + scaleStr[scaleg1],
+                    left:'left',
+                },
             }
             myChart1.setOption(option1);
+            if(scaleg1 === 0){
+                $('#drillUp1').css('visibility','hidden');
+            }
         }
     });
     
     $('#drillDown2').click(function(){
         if(scaleg2 < scaleFunc2.length - 1){
+            if(scaleg2 > 0){
+                $('#drillUp2').css('visibility', 'visible');
+            }
             scaleg2++;
             datag2show = scaleFunc2[scaleg2](dataLineChart);
             option2 = {
                 dataset:{
                     source:datag2show
-                }
+                },
+                title:{
+                    text: 'Share, Like, Reply by ' + scaleStr[scaleg2],
+                    left:'left',
+                },
             }
             myChart2.setOption(option2);
+            if(scaleg2 === scaleFunc2.length - 1){
+                $('#drillDown2').css('visibility','hidden');
+            }
         }
     });
 
     $('#drillUp2').click(function(){
         if(scaleg2 > 0){
+            if(scaleg2 < scaleFunc2.length - 1){
+                $('#drillDown2').css('visibility', 'visible');
+            }
             scaleg2--;
             datag2show = scaleFunc2[scaleg2](dataLineChart);
             option2 = {
                 dataset:{
                     source:datag2show
-                }
+                },
+                title:{
+                    text: 'Share, Like, Reply by ' + scaleStr[scaleg2],
+                    left:'left',
+                },
             }
             myChart2.setOption(option2);
+            if(scaleg2 === 0){
+                $('#drillUp2').css('visibility','hidden');
+            }
         }
     });
 
@@ -304,11 +339,9 @@ $('#descending3').click(function(){
         var sumB = b[2] + b[3] + b[4];
         if(sumA < sumB){
             return -1;
-        }
-        if(sumA > sumB){
+        }else if(sumA > sumB){
             return 1;
-        }
-        return 0;
+        }else return 0;
     });
     datag3 = heading.concat(data3);
     option3 = {
@@ -349,15 +382,16 @@ $('#ascending3').click(function(){
         var heading = [['Time', 'Twitter_ID', 'UserName', 'Post_Content', 'Share', 'Like', 'Reply']];
         var data4 = datag4.slice(1);
         data4.sort(function(a,b){
+            if(a[1] == 'JimHarris' && b[1] == "Model3Owners"){
+                var breakpoint = 0;
+            }
             var sumA = a[4] + a[5] + a[6];
             var sumB = b[4] + b[5] + b[6];
             if(sumA < sumB){
                 return -1;
-            }
-            if(sumA > sumB){
+            }else if(sumA > sumB){
                 return 1;
-            }
-            return 0;
+            }else return 0;
         });
         datag4 = heading.concat(data4);
         option4 = {
@@ -378,11 +412,9 @@ $('#ascending3').click(function(){
             var sumB = b[4] + b[5] + b[6];
             if(sumA < sumB){
                 return 1;
-            }
-            if(sumA > sumB){
+            }else if(sumA > sumB){
                 return -1;
-            }
-            return 0;
+            }else return 0;
         });
         datag4 = heading.concat(data4);
         option4 = {

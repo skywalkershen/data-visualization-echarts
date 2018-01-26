@@ -48,7 +48,7 @@ var myChart1 = echarts.init(document.getElementById('graph1'));
 
 var option1Init = {
     title:{
-        text: 'Total Activities',
+        text: 'Total Activities by ' + scaleStr[scaleg1],
         left:'left',
     },
     
@@ -88,6 +88,13 @@ var option1Init = {
        nameLocation: 'center',
        type: 'category',
        triggerEvent:true,
+       axisLabel:{
+        formatter:function(param){
+            var year = param.getFullYear();
+            var month = param.getMonth() + 1;
+            return String(year) + '/' + String(month);
+        }
+       },
     },
     // 声明一个 Y 轴，数值轴。
     yAxis: {

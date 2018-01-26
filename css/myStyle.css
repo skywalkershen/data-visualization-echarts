@@ -12,8 +12,13 @@ h1{
     height: 30%;
 } */
 
-#div1, #div2, #div3, #div4{
-    width:50%;
+#div1, #div2{
+    width:40%;
+    float:left;
+}
+
+#div3, #div4{
+    width:60%;
     float:left;
 }
 
