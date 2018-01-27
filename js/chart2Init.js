@@ -72,10 +72,20 @@ var option2Init = {
     
         title: {
             left: 'left',
-            text: 'Share, Like, Reply'
+            text: 'Share, Like, Reply by month'
         },
         tooltip: {
-            trigger: 'axis'
+            trigger:'axis',
+            formatter:function(params){
+                var time = params[0].data[0];
+                var value = params[0].data[1];
+                var showTime = time.getFullYear() + '/' + (time.getMonth() +1) + '/' + time.getDate();
+                var period = time.getHours() / 12 >= 1? 'pm' : 'am';
+                var hour = time.getHours() % 12 + period;
+                showTime = scaleg2 === scaleFunc2.length - 1? showTime + ' '+ hour: showTime;
+                var result = 'Time :' + showTime + '\nShare: '+ value;
+                return result;
+            },
         },
         xAxis: [{
             triggerEvent:true,
@@ -87,7 +97,10 @@ var option2Init = {
         }, {
             triggerEvent:true,
             type:'category',
-            gridIndex: 2
+            gridIndex: 2,
+            name: 'Time',
+            nameLocation: 'center',
+            nameGap: 30,
         }],
         yAxis: [{
             triggerEvent:true,

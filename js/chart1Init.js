@@ -54,6 +54,16 @@ var option1Init = {
     
     tooltip: {
         trigger:'axis',
+        formatter:function(params){
+            var time = params[0].data[0];
+            var total = params[0].data[1];
+            var showTime = time.getFullYear() + '/' + (time.getMonth() +1) + '/' + time.getDate();
+            var period = time.getHours() / 12 >= 1? 'pm' : 'am';
+            var hour = time.getHours() % 12 + period;
+            showTime = scaleg1 === scaleFunc1.length - 1? showTime + ' '+ hour: showTime;
+            var result = 'Time :' + showTime + '\nTotal: '+ total;
+            return result;
+        }
     },
     // dataset: {
     //     source: fakeData1,
@@ -86,6 +96,7 @@ var option1Init = {
        silent:false,
        name: 'Time',
        nameLocation: 'center',
+       nameGap: 30,
        type: 'category',
        triggerEvent:true,
        axisLabel:{

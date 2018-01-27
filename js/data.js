@@ -239,7 +239,7 @@ d3.text(rawDataURL, function(data){
     
     $('#drillDown1').click(function(){
         if(scaleg1 < scaleFunc1.length - 1){
-            if(scaleg1 > 0){
+            if(scaleg1 >= 0){
                 $('#drillUp1').css('visibility', 'visible');
             }
             scaleg1++;
@@ -263,7 +263,7 @@ d3.text(rawDataURL, function(data){
 
     $('#drillUp1').click(function(){
         if(scaleg1 > 0){
-            if(scaleg1 < scaleFunc1.length - 1){
+            if(scaleg1 <= scaleFunc1.length - 1){
                 $('#drillDown1').css('visibility', 'visible');
             }
             scaleg1--;
@@ -286,7 +286,7 @@ d3.text(rawDataURL, function(data){
     
     $('#drillDown2').click(function(){
         if(scaleg2 < scaleFunc2.length - 1){
-            if(scaleg2 > 0){
+            if(scaleg2 >= 0){
                 $('#drillUp2').css('visibility', 'visible');
             }
             scaleg2++;
@@ -309,7 +309,7 @@ d3.text(rawDataURL, function(data){
 
     $('#drillUp2').click(function(){
         if(scaleg2 > 0){
-            if(scaleg2 < scaleFunc2.length - 1){
+            if(scaleg2 <= scaleFunc2.length - 1){
                 $('#drillDown2').css('visibility', 'visible');
             }
             scaleg2--;

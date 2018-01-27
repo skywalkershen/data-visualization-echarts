@@ -116,6 +116,9 @@ var option4Init = {
        name: 'Values',
        nameLocation: 'center',
        triggerEvent:true,
+       name: 'Values',
+       nameLocation: 'center',
+       nameGap: 30,
     },
     // 声明一个 Y 轴，数值轴。
     yAxis: {

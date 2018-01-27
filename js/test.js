@@ -7,40 +7,134 @@ var testData3 = [
     ["2017-10-10, 7:27 PM", "bitt32ersweet9", "Lisa Paternella", "text", 4, 0, 5],
     ["2018-08-10, 7:27 PM", "bitter2sweet9", "Lisa Paternella", "text", 0, 1, 0],
     ["2019-08-10, 7:27 PM", "bittersweet9", "Lisa Paternella", "text", 0, 0, 0],
+    ["2017-08-10, 7:27 PM", "bittersw465eet9", "Lisa Paternella", "text", 0, 0, 2],
+    ["2017-08-12, 7:27 PM", "bitte231rsweet9", "Lisa Paternella", "text", 1, 5, 0],
+    ["2017-08-13, 7:27 PM", "bitter894sweet9", "Lisa Paternella", "text", 2, 2, 5],
+    ["2017-09-10, 7:27 PM", "bittersw2eet9", "Lisa Paternella", "text", 0, 0, 0],
+    ["2017-10-10, 7:27 PM", "bitt32ersweet9", "Lisa Paternella", "text", 4, 0, 5],
+    ["2018-08-10, 7:27 PM", "bitter2sweet9", "Lisa Paternella", "text", 0, 1, 0],
+    ["2019-08-10, 7:27 PM", "bittersweet9", "Lisa Paternella", "text", 0, 0, 0],
 
 ];
+var testData = [
+    ['Time', 'Reply', 'Share', 'Like'],
+    [1478535300000, 0, 0, 0, 0]
+    ,[1478536800000, 1, 1, 0, 2] 
+    ,[1478537220000, 0, 0, 0, 0]
+    ,[1478539020000, 0, 0, 0, 0]
+    ,[1478541540000, 0, 0, 0, 0]
+    ,[1478541780000, 0, 0, 0, 0]
+    ,[1478545140000, 1, 1, 0, 2]
+    ,[1478545200000, 0, 0, 0, 0]
+    ,[1478547660000, 0, 0, 1, 1]
+    ,[1478547720000, 1, 15, 1, 17]
+    ,[1478551980000, 0, 0, 0, 0]
+    ,[1478552640000, 9, 11, 0, 20]
+    ,[1478552760000, 0, 0, 0, 0]
+    ,[1478557380000, 0, 5, 0, 5]
+    ,[1502399880000, 4, 5, 0, 9]
+    ,[1502399880000, 0, 2, 0, 2]
+    ,[1502400300000, 1, 1, 0, 2]
+    ,[1502400540000, 1, 1, 0, 2]
+    ,[1502402760000, 0, 0, 0, 0]
+    ,[1502407980000, 1, 0, 0, 1]
+    ,[1502408100000, 0, 0, 0, 0]
+    ,[1502409840000, 0, 0, 0, 0]
+    ,[1502416980000, 0, 1, 0, 1]
+    ,[1502418420000, 0, 0, 0, 0]
+];
 
-//var copy = JSON.parse(JSON.stringify(testData3));
 
-//data process for rawdata
-//convert time to milliseconds, sort the seconds into ascending order(the 0th elem will be put to 0 index on x axis)
-//only keep time, reply, share, like and add a field for total
-//
-function chartLineInit(dataIn){
-    var dataCopy = JSON.parse(JSON.stringify(dataIn));
+
+function milliSecToDate(d){
     var heading = [['Time', 'Reply', 'Share', 'Like', 'Total']];
+    var dataCopy = JSON.parse(JSON.stringify(d));
     dataCopy = dataCopy.slice(1);
-    dataCopy.forEach(element => {
-        element[0] = Date.parse(element[0]);
-        element[1] = element[4];
-        element[2] = element[5];
-        element[3] = element[6];
-        element[4] = element[1] + element[2] + element[3];
-        element.splice(5, 2);
-    });
-    dataCopy = dataCopy.sort(function(a,b){
-        if(a[0] < b[0]){
-            return -1;
-        }
-        if(a[0] > b[0]){
-            return 1;
-        }
-        return 0;
+    dataCopy.forEach(item=>{
+        item[0] = new Date(item[0]);
     });
     return heading.concat(dataCopy);
 }
 
-var copy = chartLineInit(testData3);
+
+
+
+
+
+// var totaltest = {'t':0};
+// dataIn.forEach(item=>{
+//     totaltest.t += item[5] + item[6] + item[4];
+// })
+
+
+
+function timeAsc(result){
+    result = result.sort(function(a,b){
+        var timea = Date.parse(a[0])
+        var timeb = Date.parse(b[0])
+        if(timea > timeb){
+            return -1;
+        }
+        if(timea < timeb){
+            return 1;
+        }
+        return 0;
+    });
+    return result;
+}
+
+
+// function DrillToYear1(array){
+//     var heading = [['Time','Total']];
+//     arrayCopy = JSON.parse(JSON.stringify(array.slice(1)));
+//     var beginDate = new Date(arrayCopy[0][0]);
+//     var endDate = new Date(arrayCopy[arrayCopy.length - 1][0]);
+//     var yearDiff = endDate.getFullYear() - beginDate.getFullYear() + 1;
+//     var result = [];
+//     var beginYear = beginDate.getFullYear();
+//     for(var i = 0; i < yearDiff; i++){
+//         result.push([beginYear,0]);
+//         beginYear++;
+//     }
+//     var ptr = 0;
+//     var resultPtr = 0;
+//     result.forEach(item=>{
+//         while(ptr < arrayCopy.length && resultPtr < result.length){
+//             var curDate = new Date(arrayCopy[ptr][0]);
+//             if(curDate.getFullYear() !== result[resultPtr][0]){
+//                 resultPtr++
+//                 break;
+//             }else{
+//                 result[resultPtr][1] += arrayCopy[ptr++][4];
+//             }
+//         }
+//     });
+
+
+// //     return heading.concat(result);
+// // }
+
+
+
+
+// function timeAsc(result){
+//     result = result.sort(function(a,b){
+//         var timea = Date.parse(a[0])
+//         var timeb = Date.parse(b[0])
+//         if(timea > timeb){
+//             return -1;
+//         }
+//         if(timea < timeb){
+//             return 1;
+//         }
+//         return 0;
+//     });
+//     return result
+// }
+
+
+
+
 
 
 
