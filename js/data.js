@@ -252,6 +252,9 @@ d3.text(rawDataURL, function(data){
                     text: 'Total Activities by ' + scaleStr[scaleg1],
                     left:'left',
                 },
+                xAxis:{
+                    name: scaleStr[scaleg1] + '(Time)',
+                }
             }
             myChart1.setOption(option1);
             if(scaleg1 === scaleFunc1.length - 1){
@@ -276,6 +279,9 @@ d3.text(rawDataURL, function(data){
                     text: 'Total Activities by ' + scaleStr[scaleg1],
                     left:'left',
                 },
+                xAxis:{
+                    name: scaleStr[scaleg1] + '(Time)',
+                }
             }
             myChart1.setOption(option1);
             if(scaleg1 === 0){
@@ -299,6 +305,13 @@ d3.text(rawDataURL, function(data){
                     text: 'Share, Like, Reply by ' + scaleStr[scaleg2],
                     left:'left',
                 },
+                xAxis:[
+                    {},
+                    {},
+                    {
+                        name: scaleStr[scaleg2] + '(Time)',
+                    }
+                ]
             }
             myChart2.setOption(option2);
             if(scaleg2 === scaleFunc2.length - 1){
@@ -322,6 +335,13 @@ d3.text(rawDataURL, function(data){
                     text: 'Share, Like, Reply by ' + scaleStr[scaleg2],
                     left:'left',
                 },
+                xAxis:[
+                    {},
+                    {},
+                    {
+                        name: scaleStr[scaleg2] + '(Time)',
+                    }
+                ]
             }
             myChart2.setOption(option2);
             if(scaleg2 === 0){

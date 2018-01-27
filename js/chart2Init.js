@@ -112,7 +112,7 @@ var option2Init = {
             triggerEvent:true,
             type:'category',
             gridIndex: 2,
-            name: 'Time',
+            name: scaleStr[scaleg2] + '(Time)',
             nameLocation: 'center',
             nameGap: 30,
             axisLabel:{

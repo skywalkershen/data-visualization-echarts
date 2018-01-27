@@ -94,7 +94,7 @@ var option1Init = {
     //["Time","Twitter_ID","UserName","Post_Content","Reply", "Share", "Like"],
     xAxis: {
        silent:false,
-       name: 'Time',
+       name: scaleStr[scaleg1] + '(Time)',
        nameLocation: 'center',
        nameGap: 30,
        type: 'category',
