@@ -83,17 +83,31 @@ var option2Init = {
                 var period = time.getHours() / 12 >= 1? 'pm' : 'am';
                 var hour = time.getHours() % 12 + period;
                 showTime = scaleg2 === scaleFunc2.length - 1? showTime + ' '+ hour: showTime;
-                var result = 'Time :' + showTime + '\nShare: '+ value;
+                //var item = params[0].axisIndex === 0?'Share':params[0].data[0].axisIndex ===1?'Like':'Reply';
+                var item = '';
+                if(params[0].axisIndex === 0 ){
+                    item = 'Share';
+                }else if (params[0].axisIndex === 1){
+                    item = 'Like';
+                }else item = 'Reply'
+
+                var result = 'Time :' + showTime + '<br/>' +item + ': ' + value;
                 return result;
             },
         },
         xAxis: [{
             triggerEvent:true,
             type:'category',
+            axisLabel:{
+                show: false,
+               },
         }, {
             triggerEvent:true,
             type:'category',
-            gridIndex: 1
+            gridIndex: 1,
+            axisLabel:{
+                show: false,
+               },
         }, {
             triggerEvent:true,
             type:'category',
@@ -101,6 +115,13 @@ var option2Init = {
             name: 'Time',
             nameLocation: 'center',
             nameGap: 30,
+            axisLabel:{
+                formatter:function(param){
+                    var year = param.getFullYear();
+                    var month = param.getMonth() + 1;
+                    return String(year) + '/' + String(month);
+                }
+               },
         }],
         yAxis: [{
             triggerEvent:true,

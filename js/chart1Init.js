@@ -61,7 +61,7 @@ var option1Init = {
             var period = time.getHours() / 12 >= 1? 'pm' : 'am';
             var hour = time.getHours() % 12 + period;
             showTime = scaleg1 === scaleFunc1.length - 1? showTime + ' '+ hour: showTime;
-            var result = 'Time :' + showTime + '\nTotal: '+ total;
+            var result = 'Time :' + showTime + '<br/>Total: '+ total;
             return result;
         }
     },
