@@ -147,7 +147,7 @@ var option4Init = {
                     var curLine = '';
                     while(idx < rawArray.length){
                         //for long url
-                        if(rawArray[idx].length > lineLength && rawArray[idx].substring(0, 4) === 'http'){
+                        if(rawArray[idx].length > lineLength ){
                             var start = 0 + lineLength - curLine.length;
                             curLine = curLine + ' ' + rawArray[idx].substr(0, lineLength - curLine.length - 1);
                             
