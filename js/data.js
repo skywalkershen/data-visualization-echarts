@@ -223,7 +223,8 @@ d3.text(rawDataURL, function(data){
     option3 = {
         dataset:{
             source: datag3,
-        }
+        },
+        
     }
     myChart3.hideLoading();
     myChart3.setOption(option3);

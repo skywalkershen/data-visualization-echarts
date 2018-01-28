@@ -125,14 +125,14 @@ var option2Init = {
         }],
         yAxis: [{
             triggerEvent:true,
-            splitLine: {show: false}
+            //splitLine: {show: false}
         }, {
             triggerEvent:true,
-            splitLine: {show: false},
+            //splitLine: {show: false},
             gridIndex: 1
         }, {
             triggerEvent:true,
-            splitLine: {show: false},
+            //splitLine: {show: false},
             gridIndex: 2
         }],
         grid: [{

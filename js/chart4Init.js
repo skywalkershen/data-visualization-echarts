@@ -109,6 +109,11 @@ var option4Init = {
         
         
     },
+    grid: {
+        left: '1%',
+        
+        containLabel: true
+    },
     // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
     //["Time","Twitter_ID","UserName","Post_Content","Reply", "Share", "Like"],
     xAxis: {
@@ -129,6 +134,71 @@ var option4Init = {
         name: 'Post_Content',
         nameLocation: 'end',
         triggerEvent:true,
+        axisLabel:{
+            formatter:function (param){
+                var result = '';
+                var lineLength = 50;
+                var curLength = 0;
+                if(param.length <= lineLength){
+                    return param;
+                }else{
+                    var rawArray = param.split(' ');
+                    var idx = 0;
+                    var curLine = '';
+                    while(idx < rawArray.length){
+                        //for long url
+                        if(rawArray[idx].length > lineLength && rawArray[idx].substring(0, 4) === 'http'){
+                            var start = 0 + lineLength - curLine.length;
+                            curLine = curLine + ' ' + rawArray[idx].substr(0, lineLength - curLine.length - 1);
+                            
+                            while(start + lineLength <= rawArray[idx].length ){
+                                curLine = curLine + '\n'+ rawArray[idx].substr(start, lineLength);
+                                start += lineLength
+                            }
+                            result = result + '\n' + curLine;
+                            curLine = rawArray[idx].substr(start, rawArray[idx].length - start);
+                            idx++;
+                        }else{
+                            if(curLine.length + rawArray[idx].length  <= lineLength){
+                                curLine = curLine + ' ' + rawArray[idx];
+                                idx++;
+                            }else{
+                                result = result  + '\n' + curLine;
+                                curLine = '';
+                            }
+                        }
+                        
+                    }
+                    return curLine == ''? result : result + '\n' + curLine;
+                }
+            }
+            // formatter:function(param){
+            //     var result = '';
+            //     var lineLength = 30;
+            //     if(param.length < lineLength){
+            //         return param;
+            //     }else{
+            //         var start = 0;
+            //         var end = lineLength;
+            //         while(start + lineLength <= param.length ){
+            //             var tempTarget = param.substring(start, end);
+            //             var spcIdx = tempTarget.lastIndexOf(' ');
+            //             if(!spcIdx){
+            //                 var temp = tempTarget;
+            //                 start = end;
+            //                 end = start + lineLength;
+            //             }else{
+            //                 var temp = tempTarget.substring(0, spcIdx);
+            //                 start = spcIdx + 1;
+            //                 end = start + lineLength;
+            //             }
+            //             result = result + temp + '\n';
+            //             temp = '';
+            //         }
+            //         return result;
+            //     }
+            // }
+        }
     },
     // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
     //["Twitter_ID","UserName","Reply", "Share", "Like"]

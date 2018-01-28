@@ -138,8 +138,6 @@ var option3Init = {
        name: 'Values',
        nameLocation: 'center',
        triggerEvent:true,
-       name: 'Values',
-       nameLocation: 'center',
        nameGap: 30,
     },
     // 声明一个 Y 轴，数值轴。
@@ -164,6 +162,7 @@ var option3Init = {
             label: {
                 show: true,
                 color: 'black',
+                
             },
             encode:{
               y: 'UserName',
