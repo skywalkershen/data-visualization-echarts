@@ -110,7 +110,19 @@ var option3Init = {
         left:'right',
     },
     legend: {},
-    tooltip: {},
+    tooltip: {
+        //trigger:'axis',
+        formatter:function(params){
+            var seriesIdxToDataIdx = [4,2,3];
+            var userName = params.data[1];
+            var id = params.data[0];
+            var contentName = params.seriesName + ': ';
+            var value = params.data[seriesIdxToDataIdx[params.seriesIndex]];
+            var result = 'UserName: '+ userName + '<br/>' + 'Twitter ID: ' + id + '<br/>' + contentName + value;
+            return result;
+            
+        },
+    },
     // dataset: {
     //     source: fakeData3,
     // },

@@ -98,7 +98,7 @@ var option4Init = {
         type: 'slider',
         orient: 'vertical',
         start: 100,
-        end: 99.8,
+        end: 99.93,
         backgroundColor: 'lightgrey',
         zoomLock: true,
         //handleSize: 5,
@@ -110,7 +110,7 @@ var option4Init = {
         
     },
     grid: {
-        left: '1%',
+        left: '5%',
         
         containLabel: true
     },
@@ -135,6 +135,7 @@ var option4Init = {
         nameLocation: 'end',
         triggerEvent:true,
         axisLabel:{
+            //line splitter
             formatter:function (param){
                 var result = '';
                 var lineLength = 50;
