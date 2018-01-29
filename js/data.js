@@ -122,6 +122,44 @@ function dataInitG3(dataIn){
     
 }
 
+function lineSplitter(param){
+    var result = '';
+    var lineLength = 50;
+    var curLength = 0;
+    if(param.length <= lineLength){
+        return param;
+    }else{
+        var rawArray = param.split(' ');
+        var idx = 0;
+        var curLine = '';
+        while(idx < rawArray.length){
+            //for long url
+            if(rawArray[idx].length > lineLength ){
+                var start = 0 + lineLength - curLine.length;
+                curLine = curLine + ' ' + rawArray[idx].substr(0, lineLength - curLine.length - 1);
+                
+                while(start + lineLength <= rawArray[idx].length ){
+                    curLine = curLine + '\n'+ rawArray[idx].substr(start, lineLength);
+                    start += lineLength
+                }
+                result = result + '\n' + curLine;
+                curLine = rawArray[idx].substr(start, rawArray[idx].length - start);
+                idx++;
+            }else{
+                if(curLine.length + rawArray[idx].length  <= lineLength){
+                    curLine = curLine + ' ' + rawArray[idx];
+                    idx++;
+                }else{
+                    result = result  + '\n' + curLine;
+                    curLine = '';
+                }
+            }
+            
+        }
+        return curLine == ''? result : result + '\n' + curLine;
+    }
+}
+
 //Just sort to descending
 function dataInitG4(dataIn){
     //Deep copy, note the elements in array are objs, so dataIn.slice(0) will still match reference of new array's elements to original elements
@@ -142,6 +180,8 @@ function dataInitG4(dataIn){
 
     return heading.concat(dataCopy);
 }
+
+
 
 //var copy = JSON.parse(JSON.stringify(testData3));
 
@@ -193,6 +233,9 @@ d3.text(rawDataURL, function(data){
     //descending sort for graph4
     datag4 = dataInitG4(dataIn);
     //console.log(datag4.slice(0, 5));
+    datag4.forEach(item=>{
+        item[3] = lineSplitter(item[3]);
+    })
 
     datag3 = dataInitG3(dataIn);
      //console.log(datag3.slice(0,5));

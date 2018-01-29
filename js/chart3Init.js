@@ -114,11 +114,11 @@ var option3Init = {
         //trigger:'axis',
         formatter:function(params){
             var seriesIdxToDataIdx = [4,2,3];
-            var userName = params.data[1];
-            var id = params.data[0];
-            var contentName = params.seriesName + ': ';
-            var value = params.data[seriesIdxToDataIdx[params.seriesIndex]];
-            var result = 'UserName: '+ userName + '<br/>' + 'Twitter ID: ' + id + '<br/>' + contentName + value;
+            var userName = 'UserName: '+ params.data[1] + '<br/>';
+            var id = 'User Id: ' + params.data[0] + '<br/>';
+            var value = params.seriesName + ': ' + params.data[seriesIdxToDataIdx[params.seriesIndex]] + '<br/>';
+            var total = 'Total: '+ (params.data[2]+ params.data[3]+ params.data[4]);
+            var result = userName + id + value + total;
             return result;
             
         },

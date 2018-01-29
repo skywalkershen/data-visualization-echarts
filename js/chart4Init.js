@@ -89,10 +89,28 @@ var option4Init = {
         left:'right',
     },
     legend: {},
-    tooltip: {},
-    // dataset: {
-    //     source: fakeData4,
-    // },
+    tooltip: {
+        //trigger:'axis',
+        formatter:function(params){
+            var seriesIdxToDataIdx = [6,4,5];
+            var content = 'Post Content: ' + params.data[3].replace(/\n/g, "<br />") + '<br/>';
+            var time = 'Time: ' + params.data[0] + '<br/>';
+            var name = 'User Name: '+ params.data[2] + '<br/>';
+            var id = 'Twitter ID: ' + params.data[1] + '<br/>';
+            var value = params.seriesName + ': ' + params.data[seriesIdxToDataIdx[params.seriesIndex]]+ '<br/>';
+            var total = 'Total: ' + (params.data[4] + params.data[5] +params.data[6]);
+            var result = content + time + name + id + value + total;
+            
+            return result;
+            // var userName = params.data[1];
+            // var id = params.data[0];
+            // var contentName = params.seriesName + ': ';
+            // var value = params.data[seriesIdxToDataIdx[params.seriesIndex]];
+            // var result = 'UserName: '+ userName + '<br/>' + 'Twitter ID: ' + id + '<br/>' + contentName + value;
+            // return result;
+            
+        },
+    },
     
     dataZoom:{
         type: 'slider',
@@ -136,43 +154,43 @@ var option4Init = {
         triggerEvent:true,
         axisLabel:{
             //line splitter
-            formatter:function (param){
-                var result = '';
-                var lineLength = 50;
-                var curLength = 0;
-                if(param.length <= lineLength){
-                    return param;
-                }else{
-                    var rawArray = param.split(' ');
-                    var idx = 0;
-                    var curLine = '';
-                    while(idx < rawArray.length){
-                        //for long url
-                        if(rawArray[idx].length > lineLength ){
-                            var start = 0 + lineLength - curLine.length;
-                            curLine = curLine + ' ' + rawArray[idx].substr(0, lineLength - curLine.length - 1);
+            // formatter:function (param){
+            //     var result = '';
+            //     var lineLength = 50;
+            //     var curLength = 0;
+            //     if(param.length <= lineLength){
+            //         return param;
+            //     }else{
+            //         var rawArray = param.split(' ');
+            //         var idx = 0;
+            //         var curLine = '';
+            //         while(idx < rawArray.length){
+            //             //for long url
+            //             if(rawArray[idx].length > lineLength ){
+            //                 var start = 0 + lineLength - curLine.length;
+            //                 curLine = curLine + ' ' + rawArray[idx].substr(0, lineLength - curLine.length - 1);
                             
-                            while(start + lineLength <= rawArray[idx].length ){
-                                curLine = curLine + '\n'+ rawArray[idx].substr(start, lineLength);
-                                start += lineLength
-                            }
-                            result = result + '\n' + curLine;
-                            curLine = rawArray[idx].substr(start, rawArray[idx].length - start);
-                            idx++;
-                        }else{
-                            if(curLine.length + rawArray[idx].length  <= lineLength){
-                                curLine = curLine + ' ' + rawArray[idx];
-                                idx++;
-                            }else{
-                                result = result  + '\n' + curLine;
-                                curLine = '';
-                            }
-                        }
+            //                 while(start + lineLength <= rawArray[idx].length ){
+            //                     curLine = curLine + '\n'+ rawArray[idx].substr(start, lineLength);
+            //                     start += lineLength
+            //                 }
+            //                 result = result + '\n' + curLine;
+            //                 curLine = rawArray[idx].substr(start, rawArray[idx].length - start);
+            //                 idx++;
+            //             }else{
+            //                 if(curLine.length + rawArray[idx].length  <= lineLength){
+            //                     curLine = curLine + ' ' + rawArray[idx];
+            //                     idx++;
+            //                 }else{
+            //                     result = result  + '\n' + curLine;
+            //                     curLine = '';
+            //                 }
+            //             }
                         
-                    }
-                    return curLine == ''? result : result + '\n' + curLine;
-                }
-            }
+            //         }
+            //         return curLine == ''? result : result + '\n' + curLine;
+            //     }
+            // }
             // formatter:function(param){
             //     var result = '';
             //     var lineLength = 30;

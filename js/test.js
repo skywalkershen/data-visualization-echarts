@@ -56,43 +56,43 @@ function milliSecToDate(d){
     return heading.concat(dataCopy);
 }
 
-function lineSplitter(param){
-    var result = '';
-    var lineLength = 50;
-    var curLength = 0;
-    if(param.length <= lineLength){
-        return param;
-    }else{
-        var rawArray = param.split(' ');
-        var idx = 0;
-        var curLine = '';
-        while(idx < rawArray.length){
-            //for long url
-            if(rawArray[idx].length > lineLength ){
-                var start = 0 + lineLength - curLine.length;
-                curLine = curLine + ' ' + rawArray[idx].substr(0, lineLength - curLine.length - 1);
+// function lineSplitter(param){
+//     var result = '';
+//     var lineLength = 50;
+//     var curLength = 0;
+//     if(param.length <= lineLength){
+//         return param;
+//     }else{
+//         var rawArray = param.split(' ');
+//         var idx = 0;
+//         var curLine = '';
+//         while(idx < rawArray.length){
+//             //for long url
+//             if(rawArray[idx].length > lineLength ){
+//                 var start = 0 + lineLength - curLine.length;
+//                 curLine = curLine + ' ' + rawArray[idx].substr(0, lineLength - curLine.length - 1);
                 
-                while(start + lineLength <= rawArray[idx].length ){
-                    curLine = curLine + '\n'+ rawArray[idx].substr(start, lineLength);
-                    start += lineLength
-                }
-                result = result + '\n' + curLine;
-                curLine = rawArray[idx].substr(start, rawArray[idx].length - start);
-                idx++;
-            }else{
-                if(curLine.length + rawArray[idx].length  <= lineLength){
-                    curLine = curLine + ' ' + rawArray[idx];
-                    idx++;
-                }else{
-                    result = result  + '\n' + curLine;
-                    curLine = '';
-                }
-            }
+//                 while(start + lineLength <= rawArray[idx].length ){
+//                     curLine = curLine + '\n'+ rawArray[idx].substr(start, lineLength);
+//                     start += lineLength
+//                 }
+//                 result = result + '\n' + curLine;
+//                 curLine = rawArray[idx].substr(start, rawArray[idx].length - start);
+//                 idx++;
+//             }else{
+//                 if(curLine.length + rawArray[idx].length  <= lineLength){
+//                     curLine = curLine + ' ' + rawArray[idx];
+//                     idx++;
+//                 }else{
+//                     result = result  + '\n' + curLine;
+//                     curLine = '';
+//                 }
+//             }
             
-        }
-        return curLine == ''? result : result + '\n' + curLine;
-    }
-}
+//         }
+//         return curLine == ''? result : result + '\n' + curLine;
+//     }
+// }
 
 
 
