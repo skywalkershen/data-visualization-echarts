@@ -272,21 +272,21 @@ d3.text(rawDataURL, function(data){
                 label:{
                     formatter:function(params){
                         var test  = 0;
-                        return params.data[4] <= 10 ? '':params.data[4];
+                        return params.data[4] <= 100 ? '':params.data[4];
                     }
                 }
             },
             {
                 label:{
                     formatter:function(params){
-                        return params.data[2] <= 10 ? '':params.data[2];
+                        return params.data[2] <= 100 ? '':params.data[2];
                     }
                 }
             },
             {
                 label:{
                     formatter:function(params){
-                        return params.data[3] <= 10 ? '':params.data[3];
+                        return params.data[3] <= 100 ? '':params.data[3];
                     }
                 }
             }
@@ -305,7 +305,7 @@ d3.text(rawDataURL, function(data){
                 label:{
                     formatter:function(params){
                         var test  = 0;
-                        return params.data[6] <= 10 ? '':params.data[6];
+                        return params.data[6] <= 100 ? '':params.data[6];
                         
                     }
                 }
@@ -313,14 +313,14 @@ d3.text(rawDataURL, function(data){
             {
                 label:{
                     formatter:function(params){
-                        return params.data[4] <= 10 ? '':params.data[4];
+                        return params.data[4] <= 100 ? '':params.data[4];
                     }
                 }
             },
             {
                 label:{
                     formatter:function(params){
-                        return params.data[5] <= 10 ? '':params.data[5];
+                        return params.data[5] <= 100 ? '':params.data[5];
                     }
                 }
             }
