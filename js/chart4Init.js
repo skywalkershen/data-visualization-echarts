@@ -88,7 +88,16 @@ var option4Init = {
         text: 'popular posts',
         left:'right',
     },
-    legend: {},
+    //legend: {},
+    brush:{
+        toolbox:['rect']
+    },
+    toolbox:{
+        left:'center',
+        feature:{
+            dataView:{}
+        },
+    },
     tooltip: {
         //trigger:'axis',
         formatter:function(params){

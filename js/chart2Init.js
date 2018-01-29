@@ -74,6 +74,15 @@ var option2Init = {
             left: 'left',
             text: 'Share, Like, Reply by month'
         },
+        brush:{
+            toolbox:['rect']
+        },
+        toolbox:{
+            left:'right',
+            feature:{
+                dataView:{}
+            },
+        },
         tooltip: {
             trigger:'axis',
             formatter:function(params){

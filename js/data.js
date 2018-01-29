@@ -267,6 +267,30 @@ d3.text(rawDataURL, function(data){
         dataset:{
             source: datag3,
         },
+        series:[
+            {
+                label:{
+                    formatter:function(params){
+                        var test  = 0;
+                        return params.data[4] <= 10 ? '':params.data[4];
+                    }
+                }
+            },
+            {
+                label:{
+                    formatter:function(params){
+                        return params.data[2] <= 10 ? '':params.data[2];
+                    }
+                }
+            },
+            {
+                label:{
+                    formatter:function(params){
+                        return params.data[3] <= 10 ? '':params.data[3];
+                    }
+                }
+            }
+        ]
         
     }
     myChart3.hideLoading();
@@ -275,7 +299,32 @@ d3.text(rawDataURL, function(data){
     option4 = {
         dataset:{
             source: datag4,
-        }
+        },
+        series:[
+            {
+                label:{
+                    formatter:function(params){
+                        var test  = 0;
+                        return params.data[6] <= 10 ? '':params.data[6];
+                        
+                    }
+                }
+            },
+            {
+                label:{
+                    formatter:function(params){
+                        return params.data[4] <= 10 ? '':params.data[4];
+                    }
+                }
+            },
+            {
+                label:{
+                    formatter:function(params){
+                        return params.data[5] <= 10 ? '':params.data[5];
+                    }
+                }
+            }
+        ]
     }
     myChart4.hideLoading();
     myChart4.setOption(option4);

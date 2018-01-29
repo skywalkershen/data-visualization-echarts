@@ -109,7 +109,16 @@ var option3Init = {
         text: 'active users',
         left:'right',
     },
-    legend: {},
+    //legend: {},
+    brush:{
+        toolbox:['rect']
+    },
+    toolbox:{
+        left:'center',
+        feature:{
+            dataView:{}
+        },
+    },
     tooltip: {
         //trigger:'axis',
         formatter:function(params){
@@ -224,38 +233,5 @@ myChart3.on('click', function(params){
     console.log(params.data);
     console.log(params.dataIndex);
 })
-// //descending
-// document.querySelector('#descending3').addEventListener('click',function(){
-    
-//     fakeData3.sort(function(a,b){
-//         var sumA = a[2] + a[3] + a[4];
-//         var sumB = b[2] + b[3] + b[4];
-//         if(sumA < sumB){
-//             return -1;
-//         }
-//         if(sumA > sumB){
-//             return 1;
-//         }
-//         return 0;
-//     });
-//     myChart3.setOption(option3Init);
-//     console.log(fakeData3);
-// });
-// //ascending
-// document.querySelector('#ascending3').addEventListener('click',function(){
-//     fakeData3.sort(function(a,b){
-//       var sumA = a[2] + a[3] + a[4];
-//       var sumB = b[2] + b[3] + b[4];
-//         if(sumA > sumB){
-//             return -1;
-//         }
-//         if(sumA < sumB){
-//             return 1;
-//         }
-//         return 0;
-//     });
-//     myChart3.setOption(option3Init);
-//     console.log(fakeData3);
-// })
 
 

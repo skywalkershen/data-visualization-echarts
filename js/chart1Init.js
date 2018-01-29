@@ -51,7 +51,15 @@ var option1Init = {
         text: 'Total Activities by ' + scaleStr[scaleg1],
         left:'left',
     },
-    
+    brush:{
+        toolbox:['rect']
+    },
+    toolbox:{
+        left:'right',
+        feature:{
+            dataView:{}
+        },
+    },
     tooltip: {
         trigger:'axis',
         formatter:function(params){
