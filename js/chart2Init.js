@@ -40,7 +40,7 @@ var fakeData2 = [
     ,['2014-06-01',56,55,53]
 ];
 var myChart2 = echarts.init(document.getElementById('graph2'));
-
+var selectedIdx2 = new Set();
 
 var option2Init = {
     
@@ -75,7 +75,9 @@ var option2Init = {
             text: 'Share, Like, Reply by month'
         },
         brush:{
-            toolbox:['rect']
+            toolbox:['rect'],
+            throttleType: 'debounce',
+            throttleDelay: 300,
         },
         toolbox:{
             left:'right',

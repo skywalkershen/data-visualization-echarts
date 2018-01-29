@@ -79,7 +79,7 @@ var fakeData4 = [
     ["2017-06-10, 12:51 PM","getmeontop","GetMeOnTop","35 Crystal Clear photos of new #Tesla #Model3 #TeslaModel3 Feast your eyes! Via @getmeontophttps://m.imgur.com/gallery/6Dp72",0,64,88],
 ];
 var myChart4 = echarts.init(document.getElementById('graph4'));
-
+var selectedIdx4 = new Set();
         
 
 
@@ -90,7 +90,9 @@ var option4Init = {
     },
     //legend: {},
     brush:{
-        toolbox:['rect']
+        toolbox:['rect'],
+        throttleType: 'debounce',
+        throttleDelay: 300,
     },
     toolbox:{
         left:'center',

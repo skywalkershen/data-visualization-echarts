@@ -15,6 +15,7 @@ var option3 = {};
 var option4 = {};
 
 
+
 //for sorted array of objs
 function dedup(inputArray){
     var lastElem = '';
@@ -305,7 +306,7 @@ d3.text(rawDataURL, function(data){
                 label:{
                     formatter:function(params){
                         var test  = 0;
-                        return params.data[6] <= 100 ? '':params.data[6];
+                        return params.data[6] <= 50 ? '':params.data[6];
                         
                     }
                 }
@@ -313,14 +314,14 @@ d3.text(rawDataURL, function(data){
             {
                 label:{
                     formatter:function(params){
-                        return params.data[4] <= 100 ? '':params.data[4];
+                        return params.data[4] <= 50 ? '':params.data[4];
                     }
                 }
             },
             {
                 label:{
                     formatter:function(params){
-                        return params.data[5] <= 100 ? '':params.data[5];
+                        return params.data[5] <= 50 ? '':params.data[5];
                     }
                 }
             }
@@ -537,6 +538,47 @@ $('#ascending3').click(function(){
         }
         myChart4.setOption(option4);
     });
+
+
+    //keep and remove
+
+    $('#keep3').click(function(){
+        var origLength = datag3.length;
+        var originZoomEnd = 99.6;
+        var heading = [['Twitter_ID', 'UserName', 'Share', 'Like', 'Reply']];
+        datag3 = heading.concat(datag3.filter((item, idx)=>{
+            return selectedIdx3.has(idx);
+        }));
+        selectedIdx3.clear();
+        option3 = {
+            dataset:{
+                source:datag3,
+            },
+            dataZoom:{
+                end: originZoomEnd * datag3.length / origLength,
+            }
+        }
+        myChart3.setOption(option3);
+    })
+
+    $('#remove3').click(function(){
+        var origLength = datag3.length;
+        var originZoomEnd = 99.6;
+        var heading = [['Twitter_ID', 'UserName', 'Share', 'Like', 'Reply']];
+        datag3 = heading.concat(datag3.filter((item, idx)=>{
+            return !selectedIdx3.has(idx);
+        }));
+        selectedIdx3.clear();
+        option3 = {
+            dataset:{
+                source:datag3,
+            },
+            dataZoom:{
+                end: originZoomEnd * datag3.length / origLength,
+            }
+        }
+        myChart3.setOption(option3);
+    })
     
     // var drillTest = milliSecToDate(dataLineChart).slice(0, 70);
     // console.log(drillTest);

@@ -42,7 +42,7 @@ var fakeData1 = [
     ,['2014-06-01',53]
 ];
 var myChart1 = echarts.init(document.getElementById('graph1'));
-
+var selectedIdx1 = new Set();
         
 
 
@@ -52,7 +52,9 @@ var option1Init = {
         left:'left',
     },
     brush:{
-        toolbox:['rect']
+        toolbox:['rect'],
+        throttleType: 'debounce',
+        throttleDelay: 300,
     },
     toolbox:{
         left:'right',

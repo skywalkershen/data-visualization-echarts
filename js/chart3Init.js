@@ -48,7 +48,7 @@ var fakeData3 = [
 ];
   
 var myChart3 = echarts.init(document.getElementById('graph3'));
-
+var selectedIdx3 = new Set();
         
 
 // var source = data.map(function(item, index) {
@@ -111,7 +111,9 @@ var option3Init = {
     },
     //legend: {},
     brush:{
-        toolbox:['rect']
+        toolbox:['rect'],
+        throttleType: 'debounce',
+        throttleDelay: 300,
     },
     toolbox:{
         left:'center',
@@ -232,6 +234,18 @@ myChart3.on('click', function(params){
     console.log(params);
     console.log(params.data);
     console.log(params.dataIndex);
-})
-
+});
+myChart3.on('brushSelected', function(params){
+    var brushedIdxArray0 = params.batch[0].selected[0].dataIndex;
+    var brushedIdxArray1 = params.batch[0].selected[1].dataIndex;
+    var brushedIdxArray2 = params.batch[0].selected[2].dataIndex;
+    var brushedIdxArray = [];
+    brushedIdxArray = brushedIdxArray.concat(brushedIdxArray0).concat(brushedIdxArray1).concat(brushedIdxArray2);
+    selectedIdx3 = new Set(brushedIdxArray);
+    // console.log(brushedIdxArray0);
+    // console.log(brushedIdxArray1);
+    // console.log(brushedIdxArray2);
+    // console.log(selectedIdx3);
+    //console.log(params);
+});
 
