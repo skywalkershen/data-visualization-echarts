@@ -167,12 +167,14 @@ var option2Init = {
         }],
         series: [{
             type: 'line',
+            color:'orange',
             encode:{
                 x:'Time',
                 y:'Share'
             }
         }, {
             type: 'line',
+            color:'green',
             encode:{
                 x:'Time',
                 y:'Like'
@@ -181,6 +183,7 @@ var option2Init = {
             yAxisIndex: 1
         }, {
             type: 'line',
+            color:'darkblue',
             encode:{
                 x:'Time',
                 y:'Reply'
