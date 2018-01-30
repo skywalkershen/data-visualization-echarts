@@ -550,6 +550,8 @@ $('#ascending3').click(function(){
             return selectedIdx3.has(idx);
         }));
         selectedIdx3.clear();
+        $('#keep3').css('visibility', 'hidden');
+        $('#remove3').css('visibility', 'hidden');
         option3 = {
             dataset:{
                 source:datag3,
@@ -569,6 +571,8 @@ $('#ascending3').click(function(){
             return !selectedIdx3.has(idx);
         }));
         selectedIdx3.clear();
+        $('#keep3').css('visibility', 'hidden');
+        $('#remove3').css('visibility', 'hidden');
         option3 = {
             dataset:{
                 source:datag3,
@@ -588,6 +592,8 @@ $('#ascending3').click(function(){
             return selectedIdx4.has(idx);
         }));
         selectedIdx4.clear();
+        $('#keep4').css('visibility', 'hidden');
+        $('#remove4').css('visibility', 'hidden');
         option4 = {
             dataset:{
                 source:datag4,
@@ -607,6 +613,8 @@ $('#ascending3').click(function(){
             return !selectedIdx4.has(idx);
         }));
         selectedIdx4.clear();
+        $('#keep4').css('visibility', 'hidden');
+        $('#remove4').css('visibility', 'hidden');
         option4 = {
             dataset:{
                 source:datag4,
