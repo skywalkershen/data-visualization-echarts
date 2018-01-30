@@ -111,7 +111,7 @@ var option3Init = {
     },
     //legend: {},
     brush:{
-        toolbox:['rect'],
+        toolbox:['lineY'],//['rect'],
         throttleType: 'debounce',
         throttleDelay: 300,
     },

@@ -14,6 +14,31 @@ var option2 = {};
 var option3 = {};
 var option4 = {};
 
+var dataViewFunc = function(dataForView){
+     return function () {
+        var categ = '';
+        var content = '';
+        var curRow = '';
+        var table = '';
+        for(var i = 0; i < dataForView[0].length; i++){
+            categ = categ + '<td>' + dataForView[0][i] + '</td>';
+        }
+        categ = '<tr>' + categ + '</tr>';
+    
+        for(var j = 1; j < dataForView.length; j++){
+            dataForView[j].forEach((elem)=>{
+                curRow = curRow + '<td>' + elem + '</td>';
+            })
+            curRow = '<tr>' + curRow + '</tr>';
+            content = content + curRow;
+            curRow = '';
+        }
+        table = '<table style="width:100%;text-align:center"><tbody>' + categ + content + '</tbody></table>';
+        
+        return table;
+    }
+    
+};
 
 
 //for sorted array of objs
@@ -251,7 +276,14 @@ d3.text(rawDataURL, function(data){
     option1 = {
         dataset:{
             source: datag1show,
-        }
+        },
+        toolbox:{
+            feature:{
+                dataView:{
+                    optionToContent: dataViewFunc(datag1show),
+                }
+            },
+        },
     }
     myChart1.hideLoading();
     myChart1.setOption(option1);
@@ -259,7 +291,14 @@ d3.text(rawDataURL, function(data){
     option2 = {
         dataset:{
             source: datag2show,
-        }
+        },
+        toolbox:{
+            feature:{
+                dataView:{
+                    optionToContent: dataViewFunc(datag2show),
+                }
+            },
+        },
     }
     myChart2.hideLoading();
     myChart2.setOption(option2);
@@ -267,6 +306,13 @@ d3.text(rawDataURL, function(data){
     option3 = {
         dataset:{
             source: datag3,
+        },
+        toolbox:{
+            feature:{
+                dataView:{
+                    optionToContent: dataViewFunc(datag3),
+                }
+            },
         },
         series:[
             {
@@ -301,6 +347,13 @@ d3.text(rawDataURL, function(data){
         dataset:{
             source: datag4,
         },
+        toolbox:{
+            feature:{
+                dataView:{
+                    optionToContent: dataViewFunc(datag4),
+                }
+            },
+        },
         series:[
             {
                 label:{
@@ -330,7 +383,7 @@ d3.text(rawDataURL, function(data){
     myChart4.hideLoading();
     myChart4.setOption(option4);
 
-    
+    //Data drill events
     $('#drillDown1').click(function(){
         if(scaleg1 < scaleFunc1.length - 1){
             if(scaleg1 >= 0){
@@ -341,6 +394,13 @@ d3.text(rawDataURL, function(data){
             option1 = {
                 dataset:{
                     source:datag1show
+                },
+                toolbox:{
+                    feature:{
+                        dataView:{
+                            optionToContent: dataViewFunc(datag1show),
+                        }
+                    },
                 },
                 title:{
                     text: 'Total Activities by ' + scaleStr[scaleg1],
@@ -369,6 +429,13 @@ d3.text(rawDataURL, function(data){
                 dataset:{
                     source:datag1show
                 },
+                toolbox:{
+                    feature:{
+                        dataView:{
+                            optionToContent: dataViewFunc(datag1show),
+                        }
+                    },
+                },
                 title:{
                     text: 'Total Activities by ' + scaleStr[scaleg1],
                     left:'left',
@@ -394,6 +461,13 @@ d3.text(rawDataURL, function(data){
             option2 = {
                 dataset:{
                     source:datag2show
+                },
+                toolbox:{
+                    feature:{
+                        dataView:{
+                            optionToContent: dataViewFunc(datag2show),
+                        }
+                    },
                 },
                 title:{
                     text: 'Share, Like, Reply by ' + scaleStr[scaleg2],
@@ -424,6 +498,13 @@ d3.text(rawDataURL, function(data){
             option2 = {
                 dataset:{
                     source:datag2show
+                },
+                toolbox:{
+                    feature:{
+                        dataView:{
+                            optionToContent: dataViewFunc(datag2show),
+                        }
+                    },
                 },
                 title:{
                     text: 'Share, Like, Reply by ' + scaleStr[scaleg2],
@@ -461,7 +542,14 @@ $('#descending3').click(function(){
     option3 = {
         dataset:{
             source:datag3
-        }
+        },
+        toolbox:{
+            feature:{
+                dataView:{
+                    optionToContent: dataViewFunc(datag3),
+                }
+            },
+        },
     }
     myChart3.setOption(option3);
 });
@@ -486,7 +574,14 @@ $('#ascending3').click(function(){
     option3 = {
         dataset:{
             source:datag3
-        }
+        },
+        toolbox:{
+            feature:{
+                dataView:{
+                    optionToContent: dataViewFunc(datag3),
+                }
+            },
+        },
     }
     myChart3.setOption(option3);
 });
@@ -511,7 +606,14 @@ $('#ascending3').click(function(){
         option4 = {
             dataset:{
                 source:datag4
-            }
+            },
+            toolbox:{
+                feature:{
+                    dataView:{
+                        optionToContent: dataViewFunc(datag4),
+                    }
+                },
+            },
         }
         myChart4.setOption(option4);
     });
@@ -534,13 +636,55 @@ $('#ascending3').click(function(){
         option4 = {
             dataset:{
                 source:datag4
-            }
+            },
+            toolbox:{
+                feature:{
+                    dataView:{
+                        optionToContent: dataViewFunc(datag4),
+                    }
+                },
+            },
         }
         myChart4.setOption(option4);
     });
 
 
     //keep and remove
+    // $('#keep1').click(function(){
+    //     var origLength = datag1.length;
+    //     var heading = [['Time','Total']];
+    //     datag1 = heading.concat(datag1.filter((item, idx)=>{
+    //         return selectedIdx1.has(idx);
+    //     }));
+    //     selectedIdx1.clear();
+    //     $('#keep1').css('visibility', 'hidden');
+    //     $('#remove1').css('visibility', 'hidden');
+    //     option1 = {
+    //         dataset:{
+    //             source:datag1,
+    //         },
+    //     }
+    //     myChart1.setOption(option1);
+    // })
+
+    // $('#remove1').click(function(){
+    //     var origLength = datag1.length;
+    //     var heading = [['Time','Total']];
+    //     datag1 = heading.concat(datag1.filter((item, idx)=>{
+    //         return !selectedIdx1.has(idx);
+    //     }));
+    //     selectedIdx1.clear();
+    //     $('#keep1').css('visibility', 'hidden');
+    //     $('#remove1').css('visibility', 'hidden');
+    //     option1 = {
+    //         dataset:{
+    //             source:datag1,
+    //         },
+    //     }
+    //     myChart1.setOption(option1);
+    // })
+
+
 
     $('#keep3').click(function(){
         var origLength = datag3.length;
