@@ -242,6 +242,13 @@ myChart3.on('brushSelected', function(params){
     var brushedIdxArray = [];
     brushedIdxArray = brushedIdxArray.concat(brushedIdxArray0).concat(brushedIdxArray1).concat(brushedIdxArray2);
     selectedIdx3 = new Set(brushedIdxArray);
+    if(brushedIdxArray.length>0){
+        $('#keep3').css('visibility', 'visible');
+        $('#remove3').css('visibility', 'visible');
+    }else{
+        $('#keep3').css('visibility', 'hidden');
+        $('#remove3').css('visibility', 'hidden');
+    }
     // console.log(brushedIdxArray0);
     // console.log(brushedIdxArray1);
     // console.log(brushedIdxArray2);

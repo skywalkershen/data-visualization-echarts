@@ -291,6 +291,27 @@ myChart4.on('click', function(params){
     console.log(params.data);
     console.log(params.dataIndex);
 })
+
+myChart4.on('brushSelected', function(params){
+    var brushedIdxArray0 = params.batch[0].selected[0].dataIndex;
+    var brushedIdxArray1 = params.batch[0].selected[1].dataIndex;
+    var brushedIdxArray2 = params.batch[0].selected[2].dataIndex;
+    var brushedIdxArray = [];
+    brushedIdxArray = brushedIdxArray.concat(brushedIdxArray0).concat(brushedIdxArray1).concat(brushedIdxArray2);
+    selectedIdx4 = new Set(brushedIdxArray);
+    if(brushedIdxArray.length>0){
+        $('#keep4').css('visibility', 'visible');
+        $('#remove4').css('visibility', 'visible');
+    }else{
+        $('#keep4').css('visibility', 'hidden');
+        $('#remove4').css('visibility', 'hidden');
+    }
+    // console.log(brushedIdxArray0);
+    // console.log(brushedIdxArray1);
+    // console.log(brushedIdxArray2);
+    // console.log(selectedIdx3);
+    //console.log(params);
+});
 // //descending
 // document.querySelector('#descending4').addEventListener('click',function(){
 //     fakeData4.sort(function(a,b){

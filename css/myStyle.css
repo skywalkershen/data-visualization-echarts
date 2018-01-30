@@ -43,3 +43,7 @@ h1{
     width: 50%;
     height: 10%;
 }
+
+#keep1, #keep2, #keep3, #keep4, #remove1, #remove2, #remove3, #remove4{
+    visibility: hidden;
+}

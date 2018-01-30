@@ -579,6 +579,44 @@ $('#ascending3').click(function(){
         }
         myChart3.setOption(option3);
     })
+
+    $('#keep4').click(function(){
+        var origLength = datag4.length;
+        var originZoomEnd = 99.93;
+        var heading = [['Time', 'Twitter_ID', 'UserName', 'Post_Content', 'Share', 'Like', 'Reply']];
+        datag4 = heading.concat(datag4.filter((item, idx)=>{
+            return selectedIdx4.has(idx);
+        }));
+        selectedIdx4.clear();
+        option4 = {
+            dataset:{
+                source:datag4,
+            },
+            dataZoom:{
+                end: originZoomEnd * datag4.length / origLength,
+            }
+        }
+        myChart4.setOption(option4);
+    })
+
+    $('#remove4').click(function(){
+        var origLength = datag4.length;
+        var originZoomEnd = 99.93;
+        var heading = [['Time', 'Twitter_ID', 'UserName', 'Post_Content', 'Share', 'Like', 'Reply']];
+        datag4 = heading.concat(datag4.filter((item, idx)=>{
+            return !selectedIdx4.has(idx);
+        }));
+        selectedIdx4.clear();
+        option4 = {
+            dataset:{
+                source:datag4,
+            },
+            dataZoom:{
+                end: originZoomEnd * datag4.length / origLength,
+            }
+        }
+        myChart4.setOption(option4);
+    })
     
     // var drillTest = milliSecToDate(dataLineChart).slice(0, 70);
     // console.log(drillTest);
