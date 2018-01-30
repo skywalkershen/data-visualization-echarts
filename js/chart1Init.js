@@ -51,12 +51,12 @@ var option1Init = {
         text: 'Total Activities by ' + scaleStr[scaleg1],
         left:'left',
     },
-    brush:{
-        toolbox:['rect'],
-        throttleType: 'debounce',
-        throttleDelay: 300,
-        xAxis:'all',
-    },
+    // brush:{
+    //     toolbox:['rect'],
+    //     throttleType: 'debounce',
+    //     throttleDelay: 300,
+    //     xAxis:'all',
+    // },
     toolbox:{
         left:'right',
         feature:{
@@ -151,23 +151,23 @@ myChart1.showLoading();
 myChart1.on('click', function(params){
     console.log(params);
 })
-myChart1.on('brushSelected', function(params){
-    console.log(params);
-    var brushedIdxArray = params.batch[0].selected[0].dataIndex;
-    selectedIdx1 = new Set(brushedIdxArray);
-    if(brushedIdxArray.length>0){
-        $('#keep1').css('visibility', 'visible');
-        $('#remove1').css('visibility', 'visible');
-    }else{
-        $('#keep1').css('visibility', 'hidden');
-        $('#remove1').css('visibility', 'hidden');
-    }
-    // console.log(brushedIdxArray0);
-    // console.log(brushedIdxArray1);
-    // console.log(brushedIdxArray2);
-    // console.log(selectedIdx3);
-    //console.log(params);
-});
+// myChart1.on('brushSelected', function(params){
+//     console.log(params);
+//     var brushedIdxArray = params.batch[0].selected[0].dataIndex;
+//     selectedIdx1 = new Set(brushedIdxArray);
+//     if(brushedIdxArray.length>0){
+//         $('#keep1').css('visibility', 'visible');
+//         $('#remove1').css('visibility', 'visible');
+//     }else{
+//         $('#keep1').css('visibility', 'hidden');
+//         $('#remove1').css('visibility', 'hidden');
+//     }
+//     // console.log(brushedIdxArray0);
+//     // console.log(brushedIdxArray1);
+//     // console.log(brushedIdxArray2);
+//     // console.log(selectedIdx3);
+//     //console.log(params);
+// });
 
 
 /*

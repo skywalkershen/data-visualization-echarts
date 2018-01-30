@@ -74,11 +74,11 @@ var option2Init = {
             left: 'left',
             text: 'Share, Like, Reply by month'
         },
-        brush:{
-            toolbox:['rect'],
-            throttleType: 'debounce',
-            throttleDelay: 300,
-        },
+        // brush:{
+        //     toolbox:['rect'],
+        //     throttleType: 'debounce',
+        //     throttleDelay: 300,
+        // },
         toolbox:{
             left:'right',
             feature:{
@@ -136,13 +136,22 @@ var option2Init = {
         }],
         yAxis: [{
             triggerEvent:true,
+            name:'Share',
+            nameLocation: 'center',
+            nameGap: 30,
             //splitLine: {show: false}
         }, {
             triggerEvent:true,
+            name:'Like',
+            nameLocation: 'center',
+            nameGap: 30,
             //splitLine: {show: false},
             gridIndex: 1
         }, {
             triggerEvent:true,
+            name:'Reply',
+            nameLocation: 'center',
+            nameGap: 30,
             //splitLine: {show: false},
             gridIndex: 2
         }],

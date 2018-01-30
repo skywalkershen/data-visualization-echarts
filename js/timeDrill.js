@@ -45,7 +45,7 @@ var drillToYear1 = function(array){
                 }
                 ptr++;
             }else{
-//Note, the == case must be considered, or a time at that hour without min and secs will leads to break, and the data afterwards will not be grouped in!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//Note, the == case must be considered, or a time at that hour without min and secs will lead to break, and the data afterwards will not be grouped in!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 if(curDate >= item[0] && curDate < result[idx + 1][0]){
                     item[1] += arrayCopy[ptr++][4];
                 }else{
