@@ -14,6 +14,7 @@ var option2 = {};
 var option3 = {};
 var option4 = {};
 
+//formatter for dataview
 var dataViewFunc = function(dataForView){
      return function () {
         var categ = '';
@@ -106,7 +107,8 @@ function rawDataStringToNum(data){
 
 
 
-
+//merge post item from same user
+//cort
 function dataInitG3(dataIn){
     var map = new Map();
     var dataCopy = JSON.parse(JSON.stringify(dataIn));
@@ -148,6 +150,7 @@ function dataInitG3(dataIn){
     
 }
 
+//split the line so it can be properly shown in tooltip and axis-label
 function lineSplitter(param){
     var result = '';
     var lineLength = 50;
